@@ -1,0 +1,250 @@
+/* General */
+html{
+    scroll-behavior: smooth;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    background: rgb(79,163,168);
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgba(247,247,247,1) 28%);
+}
+.shadow{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+}
+.inactive-word{
+    /* important to override the jawn */
+    fill: #b4b4b4 !important;
+}
+
+/*********** Navbar ***********/
+nav{
+    margin: 0 auto;
+    height: 8vh;
+    padding: 0 3%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#nav-social-media{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-imgs{
+    height: 50%;
+    width: 50%;
+}
+#dvrpc-logo{
+    display: block;
+    float: right;
+    padding-right: 2vw;
+    border-right: 2px solid #4fa3a8;
+}
+#mailto{
+    padding-left: 1vw;
+}
+
+/*********** Introductory Section ***********/
+#intro{
+    width: 95%;
+    min-height: 45vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 4%;
+    border-bottom: 10px solid #4fa3a8;
+}
+#toolkit-logo{
+    width: 400px;
+    height: 100%;
+}
+#intro-text{
+    width: 60%;
+    color: #4fa3a8;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+
+/*********** Main wrapper (for padding, mostly) ***********/
+#wrapper{
+    padding: 4% 2%;
+}
+
+/* LRP Boxes */
+#lrp-boxes-container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.lrp-box:hover{
+    cursor: pointer;
+}
+.lrp-box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #4fa3a8;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 3px;
+}
+.lrp-box img{
+    width: 95px;
+    height: 115px;
+}
+figcaption{
+    text-align: center;
+    text-decoration: none;
+    color: #4fa3a8;
+}
+
+/* Scroll Arrow */
+#down-arrow{
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 3%;
+    height: 4vw;
+    width: 4vw;
+    border: solid #121212;
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+}
+#down-arrow:hover{
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+}
+
+/* Word Cloud */
+#cloud-container{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* wordcloud won't take up more than the allotted space left by problem statements. not sure if these  even do anything...*/
+#word-cloud{
+    padding: 1% 0;
+    max-width: 72%;
+    height: 100%;
+}
+g:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+}
+/* problem statements same width as one of the LRP boxes */
+#problem-statements-wrapper{
+    height: 100%;
+    width: 28%;
+    padding: 1% 0;
+    text-align: center;
+    overflow-y: auto;
+}
+#default-statement{
+    color: #121212;
+    font-size: 1.3em;
+}
+
+.accordion-controls{
+    padding: 0;
+    list-style-type: none;
+}
+.panel{
+    width: 85%;
+    margin: 0 auto;
+    background: #e2e2e2;
+    color: #141115;
+    padding: 0 18px;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+    border-radius: 3px;
+}
+.tools:last-child{
+    margin-bottom: 5%;
+}
+.problem-statement-btn{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    position: relative;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: 10px;
+    color: #4fa3a8;
+    border: 3px solid #b4b4b4;
+    padding: 3%;
+}
+.problem-statement-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #b4b4b4;
+    border-bottom: 0;
+    margin-left: -30%;
+    margin-bottom: -20px;
+}
+.problem-statement-btn:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.tools{
+    display: block;
+    margin-top: 5%;
+}
+.tools:hover{
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media all and (max-width: 800px){
+    .nav-imgs{
+        width: 70%;
+        height: 70%;
+    }
+    #intro{
+        flex-direction: column;
+        /* maybe this instead 
+        flex-direction: column-reverse */
+        align-items: center;
+    }
+    #toolkit-logo{
+        width: 250px;
+    }
+    #intro-text{
+        width: 97%;
+    }
+    #lrp-boxes-container{
+        flex-direction: column;
+    }
+    .lrp-box{
+        width: 60%;
+        margin-bottom: 3%;
+    }
+    #cloud-container{
+        flex-direction: column-reverse;
+    }
+    #problem-statements-wrapper{
+        width: 100%;
+    }
+    .panel{
+        width: 85%;
+    }
+}

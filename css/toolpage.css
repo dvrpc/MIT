@@ -1,0 +1,157 @@
+/* General */
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    color: #141115;
+    background: rgb(79,163,168);
+    background: linear-gradient(180deg, #dee5e5 0%, rgba(247,247,247,1) 20%);
+}
+.shadow{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+}
+/* standard h1 and h2 colors - will change */
+h1{
+    color: #4fa3a8;
+    font-size: 2em;
+}
+h2{
+    color: #0d73a1;
+    font-size: 1.4em;
+}
+a{
+    color: rgb(82, 84, 163);
+}
+
+/*********** Navbar ***********/
+nav{
+    margin: 0 auto;
+    height: 8vh;
+    padding: 0 3%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#nav-social-media{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-imgs{
+    height: 50%;
+    width: 50%;
+}
+#dvrpc-logo{
+    display: block;
+    float: right;
+    padding-right: 2vw;
+    border-right: 2px solid #4fa3a8;
+}
+#mailto{
+    padding-left: 1vw;
+}
+
+/* Header */
+#toolpage-header-wrapper{
+    padding: 0 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#toolpage-header{
+    text-align: left;
+    margin: 3% 0;
+}
+#toolpage-header-icons{
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+}
+.icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 0 3%;
+}
+
+
+/* Main Content */
+#toolpage-wrapper{
+    display: flex;
+    margin: 0 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* @todo: figure out these dimensions once theres an idea of what the media is */
+#toolpage-media{
+    display: block;
+    max-width: 47%;
+}
+#toolpage-img{
+    max-width: 100%;
+}
+figcaption{
+    text-align: center;
+}
+#toolpage-text-wrapper{
+    margin: 0;
+    width: 50%;
+}
+/* styles taken from subpage.css */
+#toolpage-hr{
+    width: 97%;
+    height:0;
+    margin: 0 auto;
+    margin-top: 3%;
+    box-sizing:content-box;
+    border:0;
+    border-top:1px solid #ddd;
+    clear:both;
+}
+
+/* More Info Section */
+#toolpage-more-info{
+    display: flex;
+    margin: 3%;
+    justify-content: space-between;
+}
+.toolpage-links-columns{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    border-radius: 3px;
+}
+.toolpage-links{
+    margin-bottom: 3%;
+    padding: 0 5%;
+}
+
+/* Media Queries */
+@media all and (max-width: 800px){
+    #toolpage-wrapper{
+        flex-direction: column;
+        justify-content: center;;
+    }
+    /* @TODO: improve this */
+    #toolpage-media{
+        margin: 0 auto;
+        width: 100%;
+    }
+    #toolpage-text-wrapper{
+        width: 97%;
+    }
+    #toolpage-more-info{
+        flex-direction: column;
+        align-items: center;
+    }
+    .toolpage-links-columns{
+        width: 60%;
+        margin-bottom: 3%;
+    }
+}
