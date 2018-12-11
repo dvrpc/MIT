@@ -54,7 +54,7 @@ nav{
 
 /*********** Introductory Section ***********/
 #intro{
-    width: 95%;
+    width: 85%;
     min-height: 45vh;
     margin: 0 auto;
     display: flex;
@@ -69,9 +69,17 @@ nav{
 }
 #intro-text{
     width: 60%;
+    max-width: 800px;
     color: #4fa3a8;
     font-weight: 500;
     font-size: 1.3em;
+    /* 
+        add text-shadow because the current set up has awful contrast: 
+            #cbd4c2 - pastel gray
+            #f7f4ea - isabelline
+            #e6ebe0 - platinum
+    */
+    text-shadow: 1px 1px #e6ebe0;
 }
 
 
