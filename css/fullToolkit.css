@@ -1,0 +1,47 @@
+/* General */
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    background: rgb(79,163,168);
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgba(247,247,247,1) 28%) no-repeat;
+}
+h1{
+    text-align: center;
+}
+
+/*********** Navbar ***********/
+nav{
+    margin: 0 auto;
+    height: 8vh;
+    padding: 0 3%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#nav-social-media{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-imgs{
+    height: 50%;
+    width: 50%;
+}
+#dvrpc-logo{
+    display: block;
+    float: right;
+    padding-right: 2vw;
+    border-right: 2px solid #4fa3a8;
+}
+#mailto{
+    padding-left: 1vw;
+}

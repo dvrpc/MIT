@@ -179,7 +179,8 @@ g:hover{
     max-height: 0;
     transition: max-height 0.2s ease-out;
     overflow: hidden;
-    border-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 .tools:last-child{
     margin-bottom: 5%;
@@ -187,27 +188,29 @@ g:hover{
 .problem-statement-btn{
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 25px;
+    /* margin-bottom: 5px; */
     position: relative;
     text-align: center;
     font-size: 1.1em;
     border-radius: 10px;
-    color: #4fa3a8;
-    border: 3px solid #b4b4b4;
+    color: #484848;
+    border: 3px solid #CCFFFF;
+    background: #CCFFFF;
     padding: 3%;
 }
 .problem-statement-btn:after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
+    left: 0;
+    top: 45%;
     width: 0;
     height: 0;
     border: 20px solid transparent;
-    border-top-color: #b4b4b4;
+    border-right-color: #CCFFFF;
+    border-left: 0;
     border-bottom: 0;
-    margin-left: -30%;
-    margin-bottom: -20px;
+    margin-top: -1px;
+    margin-left: -20px;
 }
 .problem-statement-btn:hover{
     cursor: pointer;

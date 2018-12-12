@@ -39,8 +39,9 @@ populateToolMain = (content, image, name, categories) => {
     header.textContent = name
 
     // build and populate category icons
-    const categoryIcons = buildCategoryIcons(categories)
-    categoryIcons.forEach(category => categoryIconsWrapper.appendChild(category))
+    const categoryFragment = document.createDocumentFragment()
+    buildCategoryIcons(categories, categoryFragment)
+    categoryIconsWrapper.appendChild(categoryFragment)
 
     // populate the media figure
     img.src = image
@@ -48,8 +49,9 @@ populateToolMain = (content, image, name, categories) => {
     figcaption.textContent = 'also tbd'
 
     // build and populate the paragraphs
-    const paragraphs = buildMainText(content)
-    paragraphs.forEach(paragraph => textWrapper.appendChild(paragraph))
+    const paragraphsFragment = document.createDocumentFragment()
+    buildMainText(content, paragraphsFragment)
+    textWrapper.appendChild(paragraphsFragment)
 }
 
 // lookup table to map categories to img filenames
@@ -61,27 +63,26 @@ const catMap = {
     Transportation: 'transpo-icon.png'
 }
 
-buildCategoryIcons = categories => {
-    let output = categories.map(category => {
+buildCategoryIcons = (categories, fragment) => {
+    categories.forEach(category => {
         const img = document.createElement('img')
         const src = catMap[category]
         
         img.src = `./img/toolpages/${src}`
         img.classList.add('icon')
         img.alt = `${category} icon`
+
+        fragment.appendChild(img)
     })
-    
-    return output
 }
 
 // subject to change depending on how the response serves the paragraphs
-buildMainText = content => {
-    let output = content.map(paragraph => {
+buildMainText = (content, fragment) => {
+    content.forEach(paragraph => {
         const p = document.createElement('p')
         p.textContent = paragraph
+        fragment.appendChild(p)
     })
-
-    return output
 }
 
 
@@ -95,23 +96,27 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
     const modelAndDesignBox = document.getElementById('toolpage-ordinances-and-guidelines')
 
     // build links for each info box
-    const resourceLinks = buildInfoLink(resources)
-    const caseStudiesLinks = buildInfoLink(caseStudies)
-    const modelAndDesignLinks = buildInfoLink(comboModelsAndOrdinances)
+    const resourceFragment = document.createDocumentFragment()
+    buildInfoLink(resources, fragment)
 
-    // add em
-    resourceLinks.forEach(resource => resourceBox.appendChild(resource))
-    caseStudiesLinks.forEach(caseStudy => caseStudiesBox.appendChild(caseStudy))
-    modelAndDesignLinks.forEach(jawn => modelAndDesignBox.appendChild(jawn))
+    const caseStudiesFragment = document.createDocumentFragment()
+    buildInfoLink(caseStudies, fragment)
+
+    const modelAndDesignFragment = document.createDocumentFragment()
+    buildInfoLink(comboModelsAndOrdinances, fragment)
+
+    resourceBox.appendChild(resourceFragment)
+    caseStudiesBox.appendChild(caseStudiesFragment)
+    modelAndDesignBox.appendChild(modelAndDesignFragment)
 }
 
 // subject to change depending on what goes in the responses arrays
-buildInfoLink = links => {
-    let output = links.map(link => {
+buildInfoLink = (links, fragment) => {
+    links.forEach(link => {
         const a = document.createElement('a')
         a.href = link
 
-        // behavior for external links (apparently indexOf is *usually* faster than str.match(regExp))
+        // behavior for external links
         if(link.indexOf('www.dvrpc.org' === -1)){
             a.target = 'blank'
             a.rel = 'external'
@@ -121,7 +126,7 @@ buildInfoLink = links => {
 
         // depends on the response object but hopefully each link has an associated title
         a.textContent = 'tbd here as well'
-    })
 
-    return output
+        fragment.appendChild(a)
+    })
 }
