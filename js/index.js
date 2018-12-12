@@ -53,17 +53,24 @@ const getProblemStatements = async keyword => {
             'Content-Type': 'application/json; charset=utf-8',
         }
     }
+
     const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/word/${keyword}`, options)
     const response = await stream.json()
     
-    // each statement is an object with a Description key (statement string) and Tools key (array of tool strings)
+    // build out the accordions
+    const statementsFragment = document.createDocumentFragment()
     const statements = response.pstatements
 
-    makeStatementAccordion(statements)
+    makeStatementAccordion(statements, statementsFragment)
+    problemStatementsWrapper.appendChild(statementsFragment)
+
+    // add click handler to the newly created accordions
+    const accordions = document.querySelectorAll('.problem-statement-btn')
+    addAccordionFunctionality(accordions)
 }
 
 // create each problem statement tag
-const makeStatementAccordion = async statements => {
+const makeStatementAccordion = (statements, fragment) => {
 
     // build accordions for each problem statement
     statements.forEach((statement, index) => {
@@ -88,30 +95,27 @@ const makeStatementAccordion = async statements => {
         accordionDiv.classList.add('panel')
 
         // iterate over each tool and create a tool
-        const tools = makeTools(statement.tools)
+        const toolsFragment = document.createDocumentFragment()
+        makeTools(statement.tools, toolsFragment)
         
         // add everything to the DOM
-        tools.forEach(tool => accordionDiv.appendChild(tool))
+        accordionDiv.appendChild(toolsFragment)
         listItem.appendChild(accordionButton)
         listItem.appendChild(accordionDiv)
         accordionControls.appendChild(listItem)
-        problemStatementsWrapper.appendChild(accordionControls)
+        fragment.appendChild(accordionControls)
     })
-
-    // add click handler to the newly created accordions
-    const accordions = document.querySelectorAll('.problem-statement-btn')
-    addAccordionFunctionality(accordions)
 }
 
-const makeTools = tools => {
-    return tools.map(tool => {
+const makeTools = (tools, fragment) => {
+    tools.forEach(tool => {
         const toolLink = document.createElement('a')
         toolLink.classList.add('tools')
 
         // add the tool ID into the URL so that the toolpage can hydrate the jawn
         toolLink.href="/Connections2045/MIT/toolpage.html?tool="+tool._id
         toolLink.textContent = tool.name
-        return toolLink
+        fragment.appendChild(toolLink)
     })
 }
 
