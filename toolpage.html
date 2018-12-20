@@ -15,54 +15,45 @@
     <link rel="SHORTCUT ICON" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/toolpage.css">
-    <script defer src="./js/toolpage.js"></script>
+    <!-- Comment this back in after the demo -->
+    <!-- <script defer src="./js/toolpage.js"></script> -->
 </head>
 <body>
     <nav>        
-        <div id="nav-social-media">
-            <a href="https://www.dvrpc.org">
-                <img class="nav-imgs" id="dvrpc-logo" src="./img/navbar/logo.png" alt="dvrpc logo" />
-            </a>
-
-            <a id="mailto" href="mailto:jdavis@dvrpc.org/">
-                <img class="nav-imgs" src="./img/navbar/email.png" alt="icon link to email" />
-            </a>
-
-            <a href="https://www.facebook.com/DVRPC" target="_blank">
-                <img class="nav-imgs" src="./img/navbar/facebook.png" alt="icon link to facebook" />
-            </a>
-
-            <a href="https://twitter.com/DVRPC" target="_blank">
-                <img class="nav-imgs" src="./img/navbar/twitter.png" alt="icon link to twitter" />
-            </a>
-
-            <a href="https://www.instagram.com/dvrpc/?hl=en" target="_blank">
-                <img class="nav-imgs" src="./img/navbar/instagram.png" alt="icon link to instagram" />
-            </a>
-
-            <a href="https://www.linkedin.com/company/delaware-valley-regional-planning-commission" target="_blank">
-                <img class="nav-imgs" src="./img/navbar/linkedin.png" alt="icon link to linkedin" />
-            </a>
-
-            <a href="https://www.youtube.com/user/DVRPC" target="_blank">
-                <img class="nav-imgs" src="./img/navbar/youtube.png" alt="icon link to youtube" />
-            </a>
-        </div>
+        <a href="https://www.dvrpc.org">
+            <img id="dvrpc-logo" src="./img/navbar/logo.png" alt="dvrpc logo" />
+        </a>
     </nav>
 
     <div id="toolpage-header-wrapper">
-        <h1 id="toolpage-header"></h1>
+        <h1 id="toolpage-header">Complete Streets</h1>
 
-        <div id="toolpage-header-icons"></div>
+        <div id="toolpage-header-icons">
+            <img src="./img/toolpages/comm-icon.png" class="icon" alt="community icon" />
+            <img src="./img/toolpages/transpo-icon.png" class="icon" alt="transportation icon" />
+            <img src="./img/toolpages/equity-icon.png" class="icon" alt="equity icon" />
+        </div>
     </div>
 
     <main id="toolpage-wrapper">
         <figure id="toolpage-media">
-            <img src="" id="toolpage-img"  alt="" />
-            <figcaption id="toolpage-media-caption"></figcaption>
+            <img src="./img/toolpages/CompleteStreets.jpg" id="toolpage-img"  alt="alt text for this jawn" />
+            <figcaption id="toolpage-media-caption">Complete Streets Image Caption</figcaption>
         </figure>
         
-        <div id="toolpage-text-wrapper"></div>
+        <div id="toolpage-text-wrapper">
+            <p>
+                Context-sensitive bicycle and pedestrian accommodations should be pursued throughout the region as part of a Complete Streets policy framework. Complete Streets design standards make roads safer and more user-friendly for bicyclists, pedestrians, the disabled, the elderly, and drivers by including wide sidewalks, bicycle lanes, raised crosswalks and medians, audible traffic signals, bus pullouts, and any other design elements that support safe, alternative transportation. Complete Street design also includes sustainable measures to treat stormwater runoff and minimize or eliminate water accumulation at intersections or other points along the street. To make room for multiple modes, municipalities may pursue road diets: usually conversions of four-lane undivided roads into three lanes (two travel lanes and a continuous two-way left-turn lane). The remaining pavement width from the eliminated lane can be converted into bicycle lanes, sidewalks, on-street parking, or some combination of these elements.
+            </p>
+
+            <p>
+                NJDOT was among the first state DOTs to adopt an internal Complete Streets policy for all new and retrofit transportation facilities funded through their Capital Program. Camden and Mercer Counties have countywide policies and every municipality in Mercer County has a Complete Streets policy.
+            </p>
+            
+            <p>
+                In Pennsylvania, PennDOT Connects includes Complete Streets in the DOT’s proposal screening process. It includes checklist items to screen for projects that improve safety, mobility, and accessibility for all users: drivers, pedestrians, bicyclists, transit passengers, freight carriers, and area residents and businesses.
+            </p>
+        </div>
     </main>
 
     <hr id="toolpage-hr"/>
@@ -70,15 +61,69 @@
     <section id="toolpage-more-info">
         <div id="toolpage-resources" class="toolpage-links-columns shadow">
             <h2>Resources</h2>
+            <a target="blank" rel="external" href="https://smartgrowthamerica.org/program/national-complete-streets-coalition/" class="toolpage-links">National Complete Streets Coalition</a>
+            <a target="blank" rel="external" href="https://www.state.nj.us/transportation/eng/completestreets/" class="toolpage-links">NJDOT Complete Streets Policy Philadelphia</a>
+            <a target="blank" rel="external" href="https://www.philadelphiastreets.com/images/uploads/resource_library/cs-handbook.pdf" class="toolpage-links">Philadelphia Complete Streets Handbook</a>
+            <a target="blank" rel="external" href="https://safety.fhwa.dot.gov/road_diets/" class="toolpage-links">FHWA Road Diet Resources</a>
         </div>
 
         <div id="toolpage-case-studies" class="toolpage-links-columns shadow">
             <h2>Case Studies</h2>
+            <a target="blank" rel="external" href="http://njbikeped.org/complete-streets-2/" class="toolpage-links">NJ Municipalities with Complete Streets Ordinances or Resolutions</a>
+            <a href="https://www.dvrpc.org/SmartGrowth/maps/pdf/completestreetordinances.pdf" class="toolpage-links">Delaware Valley Municipal Adoption of Complete Streets Ordinance or Resolution</a>
         </div>
 
         <div id="toolpage-ordinances-and-guidelines" class="toolpage-links-columns shadow">
             <h2>Model Ordinances/Design Guidelines</h2>
+            <a target="blank" rel="external" href="http://njbikeped.org/wp-content/uploads/2017/05/Complete-Streets-Design-Guide.pdf" class="toolpage-links">NJ State Complete Streets Design Guidelines</a>
+            <a target="blank" rel="external" href="https://www.state.nj.us/transportation/eng/completestreets/pdf/cspolicydevelopmentguide2012.pdf" class="toolpage-links">NJDOT Model Complete Streets Policy Template</a>
         </div>
     </section>
+
+    <footer>
+        <div id="footer-words">
+            <img src="./img/footer/footer-logo.png" alt="footer logo" id="footer-logo"/>
+            <address>
+                190 N. Independence Mall West, 8th Floor,<br />
+                Philadelphia, PA 19106-1520<br />
+                215.592.1800<br />
+                &copy; Delaware Valley Regional Planning Commission 
+            </address>
+        </div>
+
+        <div id="footer-links">
+            <div id="footer-social-wrapper">
+                <a id="mailto" href="mailto:jdavis@dvrpc.org/">
+                    <img class="footer-social" src="./img/footer/email.png" alt="icon link to email" />
+                </a>
+    
+                <a href="https://www.facebook.com/DVRPC" target="_blank">
+                    <img class="footer-social" src="./img/footer/facebook.png" alt="icon link to facebook" />
+                </a>
+    
+                <a href="https://twitter.com/DVRPC" target="_blank">
+                    <img class="footer-social" src="./img/footer/twitter.png" alt="icon link to twitter" />
+                </a>
+    
+                <a href="https://www.instagram.com/dvrpc/?hl=en" target="_blank">
+                    <img class="footer-social" src="./img/footer/instagram.png" alt="icon link to instagram" />
+                </a>
+    
+                <a href="https://www.linkedin.com/company/delaware-valley-regional-planning-commission" target="_blank">
+                    <img class="footer-social" src="./img/footer/linkedin.png" alt="icon link to linkedin" />
+                </a>
+    
+                <a href="https://www.youtube.com/user/DVRPC" target="_blank">
+                    <img class="footer-social" src="./img/footer/youtube.png" alt="icon link to youtube" />
+                </a>
+            </div>
+
+            <div>
+                <a href="https://www.dvrpc.org/policies/">Policies</a>
+                |
+                <a href="https://www.dvrpc.org/Links/">Other Links</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

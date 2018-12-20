@@ -25,31 +25,15 @@ body{
 
 /*********** Navbar ***********/
 nav{
-    margin: 0 auto;
     height: 8vh;
     padding: 0 3%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-#nav-social-media{
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.nav-imgs{
-    height: 50%;
-    width: 50%;
-}
 #dvrpc-logo{
-    display: block;
+    width: 50%;
     float: right;
-    padding-right: 2vw;
-    border-right: 2px solid #4fa3a8;
-}
-#mailto{
-    padding-left: 1vw;
 }
 
 /*********** Introductory Section ***********/
@@ -70,7 +54,7 @@ nav{
 #intro-text{
     width: 60%;
     max-width: 800px;
-    color: #4fa3a8;
+    color: #414042;
     font-weight: 500;
     font-size: 1.3em;
     /* 
@@ -138,7 +122,7 @@ figcaption{
 
 /* Word Cloud */
 #cloud-container{
-    margin-top: 8%;
+    margin-top: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -162,7 +146,7 @@ g:hover{
     overflow-y: auto;
 }
 #default-statement{
-    color: #121212;
+    color: #484848;
     font-size: 1.3em;
 }
 
@@ -194,8 +178,8 @@ g:hover{
     font-size: 1.1em;
     border-radius: 10px;
     color: #484848;
-    border: 3px solid #CCFFFF;
-    background: #CCFFFF;
+    border: none;
+    background: rgba(79, 160, 168, 0.1);
     padding: 3%;
 }
 .problem-statement-btn:after {
@@ -206,10 +190,10 @@ g:hover{
     width: 0;
     height: 0;
     border: 20px solid transparent;
-    border-right-color: #CCFFFF;
+    border-right-color: rgba(79, 160, 168, 0.1);
     border-left: 0;
     border-bottom: 0;
-    margin-top: -1px;
+    margin-top: -3px;
     margin-left: -20px;
 }
 .problem-statement-btn:hover{
@@ -224,8 +208,42 @@ g:hover{
     cursor: pointer;
 }
 
+/* Footer */
+footer{
+    height: 25vh;
+    width: 100%;
+    padding: 1% 15%;
+    background: #545454;
+    color: #f7f7f7;
+    display: flex;
+    align-items: center;
+}
+#footer-logo{
+    height: 30px;
+    width: 85px;
+}
+#footer-words{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+}
+#footer-links{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 70%;
+}
+.footer-social{
+    height: 17px;
+    width: 20px;
+}
+
 /* Media Queries */
-@media all and (max-width: 800px){
+@media all and (max-width: 700px){
     .nav-imgs{
         width: 70%;
         height: 70%;
@@ -257,5 +275,8 @@ g:hover{
     }
     .panel{
         width: 85%;
+    }
+    footer{
+        font-size: 0.7em;
     }
 }

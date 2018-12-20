@@ -45,3 +45,12 @@ nav{
 #mailto{
     padding-left: 1vw;
 }
+
+/*********** jawn mcstuff ***********/
+#principles-list{
+    list-style-type: none;
+}
+.principle{
+    font-size: 1.3em;
+    padding: 0 1% 1% 1%;
+}

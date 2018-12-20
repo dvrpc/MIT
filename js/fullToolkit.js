@@ -14,8 +14,6 @@ getPrinciples = (async () => {
     const stream = await fetch('https://alpha.dvrpc.org/mitoolbox/word/', options)
     const response = await stream.json()
 
-    console.log('response', response)
-
     const fragment = document.createDocumentFragment()
     response.forEach(principle => addPrinciple(principle, fragment))
 
@@ -24,6 +22,7 @@ getPrinciples = (async () => {
 
 addPrinciple = (principle, fragment) => {
     const li = document.createElement('li')
+    li.classList.add('principle')
     li.textContent = principle.name
     fragment.appendChild(li)
 }
