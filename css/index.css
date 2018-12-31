@@ -43,7 +43,7 @@ nav{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
     padding-bottom: 4%;
     border-bottom: 10px solid #4fa3a8;
 }
@@ -53,17 +53,9 @@ nav{
 }
 #intro-text{
     width: 60%;
-    max-width: 800px;
     color: #414042;
     font-weight: 500;
     font-size: 1.3em;
-    /* 
-        add text-shadow because the current set up has awful contrast: 
-            #cbd4c2 - pastel gray
-            #f7f4ea - isabelline
-            #e6ebe0 - platinum
-    */
-    text-shadow: 1px 1px #e6ebe0;
 }
 
 
@@ -243,6 +235,11 @@ footer{
 }
 
 /* Media Queries */
+@media all and (min-width: 1400px){
+    #intro-text{
+        width: 70%;
+    }
+}
 @media all and (max-width: 700px){
     .nav-imgs{
         width: 70%;
