@@ -31,8 +31,12 @@ nav{
     height: 8vh;
     padding: 0 3%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+}
+#nav-back-home{
+    text-decoration: none;
+    font-size: 1.2em;
 }
 #dvrpc-logo{
     width: 50%;
