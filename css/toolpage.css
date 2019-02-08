@@ -8,7 +8,7 @@ body{
     text-rendering: optimizeLegibility;
     color: #141115;
     background: rgb(79,163,168);
-    background: linear-gradient(180deg, #dee5e5 0%, rgba(247,247,247,1) 20%);
+    background: linear-gradient(180deg, #dee5e5 0%, rgba(242,242,242,1) 20%);
 }
 .shadow{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
@@ -60,8 +60,8 @@ nav{
     justify-content: flex-end;
 }
 .icon{
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     padding: 0 3%;
 }
@@ -120,6 +120,13 @@ figcaption{
     padding: 0 5%;
 }
 
+/* Contact */
+#contact{
+	background-color: #ddd;
+	padding: 7px 7px 7px 3%;
+	font-style: italic;
+}
+
 /* Footer */
 footer{
     height: 25vh;
@@ -149,8 +156,8 @@ footer{
     height: 70%;
 }
 .footer-social{
-    height: 17px;
-    width: 20px;
+    height: 19px;
+    width: 21px;
 }
 footer a{
     color: #f7f7f7;

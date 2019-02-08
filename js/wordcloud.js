@@ -435,15 +435,15 @@
 
 
 // list of MIT keywords (there's an API that returns the words but I already wrote all this so..)
-var wordBank = [ { key: 'AGE', value: 1}, { key: 'AFFORDABILITY', value: 2}, { key: 'HOUSING', value: 3}, { key: 'EDUCATION', value: 4}, { key: 'JOBS', value: 5}, { key: 'VOLUNTEER', value: 6}, { key: 'DOWNTOWN', value: 7}, { key: 'REGIONAL', value: 8}, { key: 'AGRICULTURE', value: 9}, { key: 'ECONOMY', value: 10}, { key: 'BUSINESS', value: 11}, { key: 'PARKING', value: 12}, { key: 'REVITALIZE', value: 13}, { key: 'PRESERVE', value: 14}, { key: 'MONEY', value: 15}, { key: 'EFFICIENCY', value: 16}, { key: 'FLOOD', value: 17}, { key: 'GREEN', value: 18}, { key: 'CLIMATE', value: 19}, { key: 'ENERGY', value: 20}, { key: 'TRAFFIC', value: 21}, { key: 'TRANSIT', value: 22}, { key: 'HEALTH', value: 23}, { key: 'ACTIVE', value: 24}, { key: 'AMENITIES', value: 25}, { key: 'PROGRAMMING', value: 26}, { key: 'FUTURE', value: 27}, { key: 'TECHNOLOGY', value: 28}, { key: 'SAFETY', value: 29}]
+var wordBank = [ { key: 'AGE', value: 1, text: 'AGE'}, { key: 'AFFORDABILITY', value: 2, text: 'AFFORDABILITY'}, { key: 'HOUSING', value: 3, text: 'HOUSING'}, { key: 'EDUCATION', value: 4, text: 'EDUCATION'}, { key: 'JOBS', value: 5, text: 'JOBS'}, { key: 'VOLUNTEER', value: 6, text: 'VOLUNTEER'}, { key: 'DOWNTOWN', value: 7, text: 'DOWNTOWN'}, { key: 'REGIONAL', value: 8, text: 'REGIONAL'}, { key: 'AGRICULTURE', value: 9, text: 'AGRICULTURE'}, { key: 'ECONOMY', value: 10, text: 'ECONOMY'}, { key: 'BUSINESS', value: 11, text: 'BUSINESS'}, { key: 'PARKING', value: 12, text: 'PARKING'}, { key: 'REVITALIZE', value: 13, text: 'REVITALIZE'}, { key: 'PRESERVE', value: 14, text: 'PRESERVE'}, { key: 'MONEY', value: 15, text: 'MONEY'}, { key: 'EFFICIENCY', value: 16, text: 'EFFICIENCY'}, { key: 'FLOOD', value: 17, text: 'FLOOD'}, { key: 'GREEN', value: 18, text: 'GREEN'}, { key: 'CLIMATE', value: 19, text: 'CLIMATE'}, { key: 'ENERGY', value: 20, text: 'ENERGY'}, { key: 'TRAFFIC', value: 21, text: 'TRAFFIC'}, { key: 'TRANSIT', value: 22, text: 'TRANSIT'}, { key: 'HEALTH', value: 23, text: 'HEALTH'}, { key: 'ACTIVE', value: 24, text: 'ACTIVE'}, { key: 'AMENITIES', value: 25, text: 'AMENITIES'}, { key: 'PROGRAMMING', value: 26, text: 'PROGRAMMING'}, { key: 'FUTURE', value: 27, text: 'FUTURE'}, { key: 'TECHNOLOGY', value: 28, text: 'TECHNOLOGY'}, { key: 'SAFETY', value: 29, text: 'SAFETY'} ]
 
 // randomize the wordBank layout
-var randomizeBank = function(words) {
+function randomizeBank(words) {
     let values = []
     let valuesMax = 30
     let diff = 0
 
-    wordBank.forEach(function(word) {    
+    words.forEach(function(word) {    
         let addingVal = true
 
         while(addingVal){
@@ -469,12 +469,15 @@ var randomizeBank = function(words) {
     })
 
     // sort the newly randomized array by value
-    wordBank.sort(function(a, b){
+    words.sort(function(a, b){
         return a.value - b.value
     })
+
+    return words
 }
 
-randomizeBank(wordBank)
+wordBank = randomizeBank(wordBank)
+
 
 /* Word Cloud Function from https://github.com/shprink/d3js-wordcloud */
 var fill = d3.scale.category20b();
@@ -504,8 +507,6 @@ var svg = d3.select("#word-cloud")
 
 var vis = svg.append("g").attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
 
-update();
-
 if(window.attachEvent) {
     window.attachEvent('onresize', update);
 }
@@ -513,7 +514,7 @@ else if(window.addEventListener) {
     window.addEventListener('resize', update);
 }
 
-function draw(data, bounds) {
+function draw(data, bounds) {    
     var w = window.innerWidth / 1.6,
         h = window.innerHeight / 1.2;
 
@@ -564,7 +565,7 @@ function draw(data, bounds) {
 
 function update() {
 
-    randomizeBank(wordBank)
+    wordBank = randomizeBank(wordBank)
 
     layout.font('roboto').spiral('archimedean');
     fontSize = d3.scale['sqrt']().range([30, 80]);
@@ -573,3 +574,5 @@ function update() {
     }
     layout.stop().words(wordBank).start();
 }
+
+update()

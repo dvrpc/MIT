@@ -68,6 +68,7 @@ nav{
 #lrp-boxes-container{
     width: 85%;
     margin: 0 auto;
+    margin-top: 4%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -114,7 +115,6 @@ figcaption{
 
 /* Word Cloud */
 #cloud-container{
-    margin-top: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,6 +200,13 @@ g:hover{
     cursor: pointer;
 }
 
+/* Contact */
+#contact{
+	background-color: #ddd;
+	padding: 7px 7px 7px 3%;
+	font-style: italic;
+}
+
 /* Footer */
 footer{
     height: 25vh;
@@ -230,8 +237,8 @@ footer{
     height: 70%;
 }
 .footer-social{
-    height: 17px;
-    width: 20px;
+    height: 19px;
+    width: 21px;
 }
 
 /* Media Queries */
@@ -269,6 +276,7 @@ footer{
     }
     #problem-statements-wrapper{
         width: 100%;
+        height: auto;
     }
     .panel{
         width: 85%;

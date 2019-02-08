@@ -115,6 +115,7 @@ const makeTools = (tools, fragment) => {
         // add the tool ID into the URL so that the toolpage can hydrate the jawn
         toolLink.href="/Connections2045/MIT/toolpage.html?tool="+tool._id
         toolLink.textContent = tool.name
+        toolLink.target = '_blank'
         fragment.appendChild(toolLink)
     })
 }

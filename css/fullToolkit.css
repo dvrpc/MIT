@@ -11,7 +11,7 @@ body{
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     background: rgb(79,163,168);
-    background: linear-gradient(180deg, #dee5e5 0%, rgba(247,247,247,1) 20%);
+    background: linear-gradient(180deg, #dee5e5 0%, rgba(242,242,242,1) 20%);
 }
 h1{
     text-align: center;
