@@ -5,7 +5,7 @@ const problemStatementsWrapper = document.querySelector('#problem-statements-wra
 const defaultStatement = document.querySelector('#default-statement')
 
 // set the height of the container to match that of the word cloud (include mobile breakpoint)
-cloudContainer.style.height = window.innerWidth > 800 ? window.innerHeight / 1.2+'px' : window.innerHeight / 0.3+'px'
+cloudContainer.style.height = window.innerWidth > 800 ? window.innerHeight / 1.2+'px' : window.innerHeight / 0.9+'px'
 
 // generate problem statements from the clicked wordcloud keywords
 g.onclick = e => getProblemStatements(e.target)
@@ -110,12 +110,14 @@ const makeStatementAccordion = (statements, fragment) => {
 const makeTools = (tools, fragment) => {
     tools.forEach(tool => {
         const toolLink = document.createElement('a')
+        const name = toTitleCase(tool.name)
+        
         toolLink.classList.add('tools')
-
         // add the tool ID into the URL so that the toolpage can hydrate the jawn
         toolLink.href="/Connections2045/MIT/toolpage.html?tool="+tool._id
-        toolLink.textContent = tool.name
+        toolLink.textContent = name
         toolLink.target = '_blank'
+
         fragment.appendChild(toolLink)
     })
 }

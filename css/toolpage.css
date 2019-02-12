@@ -7,19 +7,24 @@ body{
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     color: #141115;
-    background: rgb(79,163,168);
-    background: linear-gradient(180deg, #dee5e5 0%, rgba(242,242,242,1) 20%);
+    background: #f2f2f2;
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 6%);
+    /* go down to 6% for the psuedo-navbar effect */
+    /* 12% for the old, blended in effect */
 }
 .shadow{
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
 }
 /* standard h1 and h2 colors - will change */
 h1{
-    color: #4fa3a8;
+    color: #032b43;
+    /* color: #29335c; */
+    /* color: #141115; */
+    /* color: #4fa3a8; */
     font-size: 2em;
 }
 h2{
-    color: #0d73a1;
+    color: #373f51;
     font-size: 1.4em;
 }
 a{
@@ -63,31 +68,27 @@ nav{
     height: 45px;
     width: 45px;
     border-radius: 50%;
-    padding: 0 3%;
+    margin: 0 3%;
 }
 
 
 /* Main Content */
 #toolpage-wrapper{
-    display: flex;
-    margin: 0 3%;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0 12%;
 }
 /* @todo: figure out these dimensions once theres an idea of what the media is */
 #toolpage-media{
     display: block;
-    max-width: 47%;
+    float: left;
+    margin-left: 0;
 }
 #toolpage-img{
+    width: 500px;
     max-width: 100%;
 }
 figcaption{
     text-align: center;
-}
-#toolpage-text-wrapper{
-    margin: 0;
-    width: 50%;
+    font-weight: 600;
 }
 /* styles taken from subpage.css */
 #toolpage-hr{
@@ -104,7 +105,7 @@ figcaption{
 /* More Info Section */
 #toolpage-more-info{
     display: flex;
-    margin: 3%;
+    margin: 5% 3%;
     justify-content: space-between;
 }
 .toolpage-links-columns{
@@ -115,9 +116,40 @@ figcaption{
     width: 30%;
     border-radius: 3px;
 }
+.toolpage-resources-header{
+    background: #d8dbe2;
+    margin: 0;
+    padding: 18px 2%;
+    margin-bottom: 3%;
+}
+#toolpage-ordinances-and-guidelines {
+    width: 38%;
+}
 .toolpage-links{
     margin-bottom: 3%;
     padding: 0 5%;
+}
+
+
+/* See Also  */
+#see-also-header{
+    text-align: center;
+    margin: 3% 0 2% 0;
+}
+#see-also-list{
+    width: 35%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    background: #fff;
+    padding: 0;
+    list-style-type: none;
+    border-radius: 3px;
+    text-align: center;
+}
+.see-also-items{
+    padding: 2% 0;
+    width: 100%;
+    border-bottom: 1px solid #d8dbe2;
 }
 
 /* Contact */
@@ -165,24 +197,48 @@ footer a{
 
 /* Media Queries */
 @media all and (max-width: 800px){
-    #toolpage-wrapper{
-        flex-direction: column;
-        justify-content: center;;
+    h1{
+        font-size: 1.5em;
     }
-    /* @TODO: improve this */
+    h2{
+        font-size: 1.2em;
+    }
+    #dvrpc-logo{
+        width: 45%;
+    }
+    .icon{
+        width: 40px;
+        height: 40px;
+    }
+    #toolpage-header-wrapper{
+        padding: 3%;
+    }
     #toolpage-media{
+        float: none;
+        margin: 5% 0;
+    }
+    #toolpage-img{
+        display: block;
         margin: 0 auto;
-        width: 100%;
     }
     #toolpage-text-wrapper{
-        width: 97%;
+        width: 90%;
+        margin: 0 auto;
     }
     #toolpage-more-info{
         flex-direction: column;
         align-items: center;
     }
-    .toolpage-links-columns{
-        width: 60%;
+    .toolpage-links-columns, #toolpage-ordinances-and-guidelines{
+        width: 90%;
         margin-bottom: 3%;
+    }
+    #see-also-list{
+        width: 85%;
+    }
+}
+@media all and (max-width: 600px) {
+    #toolpage-img{
+        width: 300px;
     }
 }

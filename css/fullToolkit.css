@@ -10,8 +10,10 @@ body{
     font-size: 16px;
     line-height: 1.5;
     text-rendering: optimizeLegibility;
-    background: rgb(79,163,168);
-    background: linear-gradient(180deg, #dee5e5 0%, rgba(242,242,242,1) 20%);
+    background: #f2f2f2;
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 4%)
+    /* Go down to 4% for the pseudo navbar effect */
+    /* 8% for the old, blended in effect */
 }
 h1{
     text-align: center;
@@ -44,6 +46,7 @@ section {
     padding: 0 3%;
 }
 #intro-text{
+    font-size: 1rem;
     width: 50%;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -60,8 +63,22 @@ hr {
 
 /************** Main **************/
 main{
-    text-align: center;
     margin: 3% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.toolkit-group{
+    width: 40%;
+    margin-bottom: 3%;
+}
+.toolkit-title{
+    text-align: center;
+}
+.toolkit-group-description{
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 3%;
 }
 
 
@@ -70,7 +87,7 @@ main{
     padding: 0;
     list-style-type: none;
     margin-left: 3%;
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
 }
 .accordion{
@@ -78,7 +95,7 @@ main{
     background: rgba(79, 160, 168, 0.1);
     color: #484848;
     border-radius: 10px;
-    font-size: 1.1em;
+    font-size: 1rem;
     width: 100%;
     padding: 15px;
     text-align: left;
@@ -111,12 +128,10 @@ main{
 }
 .accordion-content-list{
     list-style-type: none;
+    padding: 0;
 }
-.accordion-content-list:last-child{
-    margin-bottom: 1%;
-}
-li{
-    margin-top: 1%;
+.accordion-content-list li{
+    margin: 3% 0;
 }
 
 /********* Footer ********/
@@ -157,12 +172,24 @@ footer a{
 
 
 /******** Footer ********/
+@media all and (max-width: 950px){
+    #intro-text{
+        width: 70%;
+    }
+}
 @media all and (max-width: 700px){
     #intro-text{
         width: 90%;
     }
-    .accordion-controls{
+    main{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .toolkit-group{
         width: 90%;
+        margin-bottom: 4%;
     }
     footer{
         font-size: 0.7em;

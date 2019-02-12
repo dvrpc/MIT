@@ -12,6 +12,7 @@ const getToolInfo = (async () => {
         mode: 'cors',
         headers
     }
+
     const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/tool/${safeID}`, options)
     const response = await stream.json()
 

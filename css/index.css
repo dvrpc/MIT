@@ -61,14 +61,13 @@ nav{
 
 /*********** Main wrapper (for padding, mostly) ***********/
 #wrapper{
-    padding: 4% 2%;
+    width: 85%;
+    margin: 0 auto;
 }
 
 /* LRP Boxes */
 #lrp-boxes-container{
-    width: 85%;
-    margin: 0 auto;
-    margin-top: 4%;
+    margin: 5% 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -121,7 +120,7 @@ figcaption{
 }
 /* wordcloud won't take up more than the allotted space left by problem statements. not sure if these  even do anything...*/
 #word-cloud{
-    padding: 1% 0;
+    padding-top: 4%;
     max-width: 72%;
     height: 100%;
 }
@@ -133,13 +132,14 @@ g:hover{
 #problem-statements-wrapper{
     height: 100%;
     width: 28%;
-    padding: 1% 0;
+    padding-top: 4%;
     text-align: center;
     overflow-y: auto;
 }
 #default-statement{
-    color: #484848;
-    font-size: 1.3em;
+    color: #414042;
+    font-size: 1.2em;
+    margin: 0;
 }
 
 .accordion-controls{
@@ -276,7 +276,7 @@ footer{
     }
     #problem-statements-wrapper{
         width: 100%;
-        height: auto;
+        height: 25%;
     }
     .panel{
         width: 85%;
