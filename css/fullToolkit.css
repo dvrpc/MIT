@@ -22,6 +22,9 @@ h1{
 h2{
     font-size: 1.4em;
 }
+.shadow{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+}
 
 /*********** Navbar ***********/
 nav{
@@ -69,8 +72,20 @@ main{
     justify-content: space-around;
 }
 .toolkit-group{
-    width: 40%;
-    margin-bottom: 3%;
+    width: 44%;
+    margin-bottom: 4%;
+}
+.toolkit-title-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2%;
+}
+.icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 3%;
 }
 .toolkit-title{
     text-align: center;
