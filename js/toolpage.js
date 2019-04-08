@@ -16,11 +16,12 @@ const getToolInfo = (async () => {
     const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/tool/${safeID}`, options)
     const response = await stream.json()
 
-    // build the page for correct responses
+    console.log('respones is ', response)
+    
     if(!response.error){
         // update this to work with the response when it comes in
         populateToolMain(response.content, response.img, response.name, response.categories)
-        populateToolLinks(response.case_studies, response.cases, response.models, response.ordinance, response.resources)
+        populateToolLinks(response.case_studies, response.cases, response.models, response.ordinances, response.resources)
     }else{
         // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
     }
@@ -46,19 +47,17 @@ populateToolMain = (content, image, name, categories) => {
 
     // populate the media figure
     img.src = image
-    img.alt = 'tbd'
-    figcaption.textContent = 'also tbd'
+    img.alt = name + ' toolpage image'
+    figcaption.textContent = name
 
-    // build and populate the paragraphs
-    const paragraphsFragment = document.createDocumentFragment()
-    buildMainText(content, paragraphsFragment)
-    textWrapper.appendChild(paragraphsFragment)
+    // populate the main paragraph
+    textWrapper.innerHTML = content
 }
 
 // lookup table to map categories to img filenames
 const catMap = {
     Economy: 'econo-icon.png',
-    Community: 'comm-icon.png',
+    'Livable Communities': 'comm-icon.png',
     Environment: 'enviro-icon.png',
     Equity: 'equity-icon.png',
     Transportation: 'transpo-icon.png'
@@ -77,15 +76,6 @@ buildCategoryIcons = (categories, fragment) => {
     })
 }
 
-// subject to change depending on how the response serves the paragraphs
-buildMainText = (content, fragment) => {
-    content.forEach(paragraph => {
-        const p = document.createElement('p')
-        p.textContent = paragraph
-        fragment.appendChild(p)
-    })
-}
-
 
 /***** fill out the external links for the tool *****/
 populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
@@ -98,13 +88,13 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
 
     // build links for each info box
     const resourceFragment = document.createDocumentFragment()
-    buildInfoLink(resources, fragment)
+    resources ? buildInfoLink(resources, resourceFragment) : noLink('resources')
 
     const caseStudiesFragment = document.createDocumentFragment()
-    buildInfoLink(caseStudies, fragment)
+    caseStudies ? buildInfoLink(caseStudies, caseStudiesFragment) : noLink('case studies')
 
     const modelAndDesignFragment = document.createDocumentFragment()
-    buildInfoLink(comboModelsAndOrdinances, fragment)
+    comboModelsAndOrdinances ? buildInfoLink(comboModelsAndOrdinances, modelAndDesignFragment) : noLink('model ordinances &amp; design guidelines')
 
     resourceBox.appendChild(resourceFragment)
     caseStudiesBox.appendChild(caseStudiesFragment)
@@ -113,12 +103,14 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
 
 // subject to change depending on what goes in the responses arrays
 buildInfoLink = (links, fragment) => {
-    links.forEach(link => {
+    links.forEach(link => {        
         const a = document.createElement('a')
-        a.href = link
+        const uri = link.href
+        const linkText = link.text
+        a.href = uri
 
         // behavior for external links
-        if(link.indexOf('www.dvrpc.org' === -1)){
+        if(uri.indexOf('www.dvrpc.org' === -1)){
             a.target = 'blank'
             a.rel = 'external'
         }
@@ -126,8 +118,17 @@ buildInfoLink = (links, fragment) => {
         a.classList.add('toolpage-links')
 
         // depends on the response object but hopefully each link has an associated title
-        a.textContent = 'tbd here as well'
+        a.textContent = linkText
 
         fragment.appendChild(a)
     })
+}
+
+noLink = type => {
+    const noLink = document.createElement('p')
+
+    noLink.textContent = `This toolpage does not have additional links for ${type}`
+
+    return noLink
+
 }

@@ -8,7 +8,7 @@ body{
     text-rendering: optimizeLegibility;
     color: #141115;
     background: #f2f2f2;
-    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 6%);
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 12%);
     /* go down to 6% for the psuedo-navbar effect */
     /* 12% for the old, blended in effect */
 }
@@ -137,14 +137,12 @@ figcaption{
     margin: 3% 0 2% 0;
 }
 #see-also-list{
-    width: 35%;
+    width: 30%;
     margin: 0 auto;
     margin-bottom: 5%;
     background: #fff;
-    padding: 0;
-    list-style-type: none;
+    padding: 0 0 0 2%;
     border-radius: 3px;
-    text-align: center;
 }
 .see-also-items{
     padding: 2% 0;

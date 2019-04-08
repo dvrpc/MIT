@@ -11,9 +11,10 @@ body{
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     background: #f2f2f2;
-    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 4%)
+    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 8%)
     /* Go down to 4% for the pseudo navbar effect */
     /* 8% for the old, blended in effect */
+    /* 4% for the fake nav effect */
 }
 h1{
     text-align: center;
