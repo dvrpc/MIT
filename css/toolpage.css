@@ -90,6 +90,20 @@ figcaption{
     text-align: center;
     font-weight: 600;
 }
+#toolpage-text-wrapper ul{
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.08),0 2px 5px 0 rgba(0,0,0,.06);
+    border-radius: 2px;
+    padding: 0;
+    overflow: hidden;
+    width: 85%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+#toolpage-text-wrapper ul li{
+    padding: 2%;
+    border-bottom: 1px solid #ddd;
+}
 /* styles taken from subpage.css */
 #toolpage-hr{
     width: 97%;

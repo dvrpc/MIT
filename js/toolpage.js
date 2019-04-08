@@ -19,7 +19,6 @@ const getToolInfo = (async () => {
     console.log('respones is ', response)
     
     if(!response.error){
-        // update this to work with the response when it comes in
         populateToolMain(response.content, response.img, response.name, response.categories)
         populateToolLinks(response.case_studies, response.cases, response.models, response.ordinances, response.resources)
     }else{
@@ -34,7 +33,9 @@ populateToolMain = (content, image, name, categories) => {
     const header = document.getElementById('toolpage-header')
     const categoryIconsWrapper = document.getElementById('toolpage-header-icons')
     const textWrapper = document.getElementById('toolpage-text-wrapper')
-    const img = document.getElementById('toolpage-img')
+    
+    // not every toolpage has media
+    let img = image ? document.getElementById('toolpage-img') : false
     const figcaption = document.getElementById('toolpage-media-caption')
 
     // populate the header
@@ -46,9 +47,14 @@ populateToolMain = (content, image, name, categories) => {
     categoryIconsWrapper.appendChild(categoryFragment)
 
     // populate the media figure
-    img.src = image
-    img.alt = name + ' toolpage image'
-    figcaption.textContent = name
+    if(img){
+        img.src = image
+        img.alt = name + ' toolpage image'
+        figcaption.textContent = name
+    }else{
+        const media = document.getElementById('toolpage-media')
+        media.style.display = 'none'
+    }
 
     // populate the main paragraph
     textWrapper.innerHTML = content
@@ -86,15 +92,15 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
     const caseStudiesBox = document.getElementById('toolpage-case-studies')
     const modelAndDesignBox = document.getElementById('toolpage-ordinances-and-guidelines')
 
-    // build links for each info box
+    // build links for each info box that has them, otherwise display a useful "error" message
     const resourceFragment = document.createDocumentFragment()
-    resources ? buildInfoLink(resources, resourceFragment) : noLink('resources')
+    resources.length ? buildInfoLink(resources, resourceFragment) : resourceFragment.appendChild(noLink('resources'))
 
     const caseStudiesFragment = document.createDocumentFragment()
-    caseStudies ? buildInfoLink(caseStudies, caseStudiesFragment) : noLink('case studies')
+    caseStudies.length ? buildInfoLink(caseStudies, caseStudiesFragment) : caseStudiesFragment.appendChild(noLink('case studies'))
 
     const modelAndDesignFragment = document.createDocumentFragment()
-    comboModelsAndOrdinances ? buildInfoLink(comboModelsAndOrdinances, modelAndDesignFragment) : noLink('model ordinances &amp; design guidelines')
+    comboModelsAndOrdinances.length ? buildInfoLink(comboModelsAndOrdinances, modelAndDesignFragment) : modelAndDesignFragment.appendChild(noLink('model ordinances & design guidelines'))
 
     resourceBox.appendChild(resourceFragment)
     caseStudiesBox.appendChild(caseStudiesFragment)
