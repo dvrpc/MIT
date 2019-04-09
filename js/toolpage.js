@@ -32,7 +32,7 @@ populateToolMain = (content, image, name, categories) => {
     // get a hold of necessary elements
     const header = document.getElementById('toolpage-header')
     const categoryIconsWrapper = document.getElementById('toolpage-header-icons')
-    const textWrapper = document.getElementById('toolpage-text-wrapper')
+    const textWrapper = document.getElementById('toolpage-main-content-wrapper')
     
     // not every toolpage has media
     let img = image ? document.getElementById('toolpage-img') : false
@@ -57,7 +57,7 @@ populateToolMain = (content, image, name, categories) => {
     }
 
     // populate the main paragraph
-    textWrapper.innerHTML = content
+    textWrapper.insertAdjacentHTML('beforeend', content)
 }
 
 // lookup table to map categories to img filenames
@@ -132,7 +132,8 @@ buildInfoLink = (links, fragment) => {
 
 noLink = type => {
     const noLink = document.createElement('p')
-
+    
+    noLink.id = 'no-link'
     noLink.textContent = `This toolpage does not have additional links for ${type}`
 
     return noLink
