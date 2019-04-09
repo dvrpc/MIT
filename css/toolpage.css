@@ -139,6 +139,9 @@ figcaption{
 }
 .toolpage-resources-header{
     text-align: center;
+    /* color alternatives:
+        grey: 595358
+    */
     background: #4d5061;
     color: #f7f7f7;
     margin: 0;
@@ -147,6 +150,11 @@ figcaption{
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
+/* IF we do go this route - reduce h2 size to 1.2
+.toolpage-resources-header:after{
+    content: '\02795';
+    float: right;
+} */
 .toolpage-links{
     margin-bottom: 3%;
     padding: 0 5%;
