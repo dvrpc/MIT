@@ -22,7 +22,7 @@
         <a href="/Connections2045/MIT/" id="nav-back-home">HOME</a>
     
         <a href="https://www.dvrpc.org">
-            <img id="dvrpc-logo" src="./img/navbar/logo.png" alt="dvrpc logo" />
+            <img id="dvrpc-logo" src="./img/navbar/logo2.png" alt="dvrpc logo" />
         </a>
     </nav>
 
@@ -41,17 +41,32 @@
         </div>
 
         <section id="toolpage-more-info">
-            <div id="toolpage-case-studies" class="toolpage-links-columns shadow">
-                <h2 class="toolpage-resources-header">Case Studies</h2>
-            </div>
+            <ul aria-label="Accordion Control Group Button" class="accordion-controls">
+                <li>
+                    <button aria-controls="more-info-1" aria-expanded="false" id="accordion-controls-1" class="accordion">Case Studies</button>
+                    <div aria-hidden="true" id="more-info-1" class="toolpage-links-columns">
+                        <ul class="toolpage-links-ul" id="toolpage-case-studies"></ul>
+                    </div>
+                </li>
+            </ul>
 
-            <div id="toolpage-ordinances-and-guidelines" class="toolpage-links-columns shadow">
-                <h2 class="toolpage-resources-header">Model Ordinances &amp; Design Guidelines</h2>
-            </div>
+            <ul aria-label="Accordion Control Group Button" class="accordion-controls">
+                <li>
+                    <button aria-controls="more-info-2" aria-expanded="false" id="accordion-controls-2" class="accordion">Model Ordinances &amp; Design Guidelines</button>
+                    <div aria-hidden="true" id="more-info-2" class="toolpage-links-columns">
+                        <ul class="toolpage-links-ul" id="toolpage-ordinances-and-guidelines"></ul>
+                    </div>
+                </li>
+            </ul>
 
-            <div id="toolpage-resources" class="toolpage-links-columns shadow">
-                <h2 class="toolpage-resources-header">Resources</h2>
-            </div>
+            <ul aria-label="Accordion Control Group Button" class="accordion-controls">
+                <li>
+                    <button aria-controls="more-info-3" aria-expanded="false" id="accordion-controls-3" class="accordion">Resources</button>
+                    <div aria-hidden="true" id="more-info-3" class="toolpage-links-columns">
+                        <ul class="toolpage-links-ul" id="toolpage-resources"></ul>
+                    </div>
+                </li>
+            </ul>
         </section>
     </main>
 

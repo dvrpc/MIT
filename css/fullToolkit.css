@@ -11,11 +11,11 @@ body{
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     background: #f2f2f2;
-    background: linear-gradient(180deg, rgba(79,163,168,0.6) 0%, rgb(242, 242, 242) 6%)
 }
 h1{
     text-align: center;
     font-size: 2em;
+    margin: 0 0 2% 0;
 }
 h2{
     font-size: 1.4em;
@@ -40,26 +40,27 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgb(79, 163, 168);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
 }
 #nav-back-home{
     text-decoration: none;
     font-size: 1.2em;
+    color: #f2f2f2;
 }
 #dvrpc-logo{
-    width: 50%;
+    width: 70%;
     float: right;
-    margin: 25px 10px 0 0;
 }
 
 /********* Intro Section **********/
 section {
-    padding: 0 3%;
+    margin: 4% 3%;
 }
 #intro-text{
     font-size: 1rem;
     width: 50%;
     margin: 0 auto;
-    margin-bottom: 3%;
 }
 
 hr {

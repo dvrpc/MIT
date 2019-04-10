@@ -15,8 +15,6 @@ const getToolInfo = (async () => {
 
     const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/tool/${safeID}`, options)
     const response = await stream.json()
-
-    console.log('respones is ', response)
     
     if(!response.error){
         populateToolMain(response.content, response.img, response.name, response.categories)
@@ -109,8 +107,10 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
 
 // subject to change depending on what goes in the responses arrays
 buildInfoLink = (links, fragment) => {
-    links.forEach(link => {        
+    links.forEach(link => {
+        const listItem = document.createElement('li')
         const a = document.createElement('a')
+
         const uri = link.href
         const linkText = link.text
         a.href = uri
@@ -121,12 +121,12 @@ buildInfoLink = (links, fragment) => {
             a.rel = 'external'
         }
 
-        a.classList.add('toolpage-links')
+        listItem.classList.add('toolpage-accordion-li')
 
-        // depends on the response object but hopefully each link has an associated title
         a.textContent = linkText
 
-        fragment.appendChild(a)
+        listItem.appendChild(a)
+        fragment.appendChild(listItem)
     })
 }
 
@@ -137,5 +137,33 @@ noLink = type => {
     noLink.textContent = `This toolpage does not have additional links for ${type}`
 
     return noLink
+}
 
+// accordion stuff
+const accordions = document.querySelectorAll('.accordion') 
+const length = accordions.length
+
+for(var i = 0; i < length; i++){
+    accordions[i].onclick = function(){
+        // show/hide the accordions on click
+        this.classList.toggle('active')
+
+        // toggle the aria-expanded attribute of the accordion button
+        let ariaExpandedBool = this.getAttribute('aria-expanded')
+        ariaExpandedBool === 'false' ? ariaExpandedBool = 'true' : ariaExpandedBool = 'false'
+        this.setAttribute('aria-expanded', ariaExpandedBool)
+
+        // toggle the aria-hidden attribute of the accordion panel
+        const panel = this.nextElementSibling
+        let ariaHiddenBool = panel.getAttribute('aria-hidden')
+        ariaHiddenBool === 'false' ? ariaHiddenBool = 'true' : ariaHiddenBool = 'false'
+        panel.setAttribute('aria-hidden', ariaHiddenBool)
+
+        // show/hide the panel on click
+        if(panel.style.maxHeight){
+            panel.style.maxHeight = null
+        }else{
+            panel.style.maxHeight = panel.scrollHeight + 'px'
+        }
+    }
 }
