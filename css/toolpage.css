@@ -257,11 +257,15 @@ footer a{
 
 /* Media Queries */
 @media all and (max-width: 800px){
+    body{
+        font-size: 14px;
+    }
+    nav{
+        position: sticky;
+        top: 0;
+    }
     h1{
         font-size: 1.5em;
-    }
-    h2{
-        font-size: 1.2em;
     }
     #dvrpc-logo{
         width: 45%;
@@ -273,6 +277,9 @@ footer a{
     #toolpage-header-wrapper{
         padding: 3%;
     }
+    #toolpage-wrapper{
+        flex-direction: column;
+    }
     #toolpage-media{
         float: none;
         margin: 5% 0;
@@ -281,20 +288,33 @@ footer a{
         display: block;
         margin: 0 auto;
     }
-    #toolpage-main-content-wrapper{
-        width: 90%;
-        margin: 0 auto;
+    #toolpage-main-content-wrapper, .accordion-controls{
+        width: 100%;
+    }
+    .accordion{
+        font-size: 1.1em;
+    }
+    .accordion-controls{
+        margin: 1% 0;
     }
     #toolpage-more-info{
-        flex-direction: column;
+        width: inherit;
         align-items: center;
-    }
-    .toolpage-links-columns, #toolpage-ordinances-and-guidelines{
-        width: 90%;
-        margin-bottom: 3%;
     }
     #see-also-list{
         width: 85%;
+    }
+    footer{
+        padding: 1% 3%;
+        font-size: 0.7rem;
+    }
+    #footer-logo{
+        height: 20px;
+        width: 65px;
+    }
+    .footer-social{
+        height: 15px;
+        width: 15px;
     }
 }
 @media all and (max-width: 600px) {
