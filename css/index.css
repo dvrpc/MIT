@@ -104,22 +104,6 @@ figcaption{
     color: #4fa3a8;
 }
 
-/* Scroll Arrow */
-#down-arrow{
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: 3%;
-    height: 4vw;
-    width: 4vw;
-    border: solid #121212;
-    border-width: 0px 2px 2px 0px;
-    transform: rotate(45deg);
-    transition: border-width 150ms ease-in-out;
-}
-#down-arrow:hover{
-    border-bottom-width: 4px;
-    border-right-width: 4px;
-}
 
 /* Word Cloud */
 #cloud-container{
@@ -155,6 +139,9 @@ g:hover{
     padding: 0;
     list-style-type: none;
 }
+.active{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
 .panel{
     width: 85%;
     margin: 0 auto;
@@ -176,7 +163,7 @@ g:hover{
     position: relative;
     text-align: center;
     font-size: 1.1em;
-    border-radius: 10px;
+    border-radius: 7px;
     color: #484848;
     border: none;
     background: rgba(79, 160, 168, 0.1);
@@ -264,15 +251,15 @@ footer a{
         width: 70%;
     }
 }
-@media all and (max-width: 700px){
-    .nav-imgs{
-        width: 70%;
-        height: 70%;
+@media all and (max-width: 800px){
+    body{
+        font-size: 14px;
+    }
+    #dvrpc-logo{
+        width: 40%;
     }
     #intro{
         flex-direction: column;
-        /* maybe this instead 
-        flex-direction: column-reverse */
         align-items: center;
     }
     #toolkit-logo{
@@ -293,7 +280,7 @@ footer a{
     }
     #problem-statements-wrapper{
         width: 100%;
-        height: 25%;
+        min-height: 20%;
     }
     .panel{
         width: 85%;

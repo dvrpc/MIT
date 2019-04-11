@@ -8,11 +8,8 @@ body{
     text-rendering: optimizeLegibility;
     color: #141115;
     background: #f2f2f2;
+    overflow-x: hidden;
 }
-.shadow{
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
-}
-/* standard h1 and h2 colors - will change */
 h1{
     color: #032b43;
     font-size: 2em;
@@ -70,6 +67,7 @@ nav{
     width: 45px;
     border-radius: 50%;
     margin: 0 3%;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -97,17 +95,12 @@ figcaption{
 #toolpage-main-content-wrapper{
     width: 50%;
 }
-#toolpage-main-content-wrapper ul, #toolpage-main-content-wrapper ol{
-    background: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.08),0 2px 5px 0 rgba(0,0,0,.06);
-    border-radius: 2px;
-    padding: 0;
-    overflow: hidden;
-    list-style-type: none;
-}
 #toolpage-main-content-wrapper li{
     padding: 2%;
     border-bottom: 1px solid #ddd;
+}
+#toolpage-main-content-wrapper li:last-child{
+    border-bottom: none;
 }
 /* styles taken from subpage.css */
 #toolpage-hr{
@@ -144,7 +137,7 @@ figcaption{
     background: rgba(79, 160, 168, 0.1);
     padding: 10px 0;
     color: #484848;
-    border-radius: 3px;
+    border-radius: 7px;
     width: 100%;
     transition: 0.4s;
     cursor: pointer;
