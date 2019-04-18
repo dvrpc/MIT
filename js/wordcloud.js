@@ -435,49 +435,7 @@
 
 
 // list of MIT keywords (there's an API that returns the words but I already wrote all this so..)
-//var wordBank = [ { key: 'AGE', value: 1}, { key: 'AFFORDABILITY', value: 2}, { key: 'HOUSING', value: 3}, { key: 'EDUCATION', value: 4}, { key: 'JOBS', value: 5}, { key: 'VOLUNTEER', value: 6}, { key: 'DOWNTOWN', value: 7}, { key: 'REGIONAL', value: 8}, { key: 'AGRICULTURE', value: 9}, { key: 'ECONOMY', value: 10}, { key: 'BUSINESS', value: 11}, { key: 'PARKING', value: 12}, { key: 'REVITALIZE', value: 13}, { key: 'PRESERVE', value: 14}, { key: 'MONEY', value: 15}, { key: 'EFFICIENCY', value: 16}, { key: 'FLOOD', value: 17}, { key: 'GREEN', value: 18}, { key: 'CLIMATE', value: 19}, { key: 'ENERGY', value: 20}, { key: 'TRAFFIC', value: 21}, { key: 'TRANSIT', value: 22}, { key: 'HEALTH', value: 23}, { key: 'ACTIVE', value: 24}, { key: 'AMENITIES', value: 25}, { key: 'PROGRAMMING', value: 26}, { key: 'FUTURE', value: 27}, { key: 'TECHNOLOGY', value: 28}, { key: 'SAFETY', value: 29} ]
 var wordBank = [{ key: 'Age', value: 1 },{ key: 'Affordability', value: 2 },{ key: 'Housing', value: 3 },{ key: 'Education', value: 4 },{ key: 'Jobs', value: 5 },{ key: 'Volunteer', value: 6 },{ key: 'Downtown', value: 7 },{ key: 'Regional', value: 8 },{ key: 'Agriculture', value: 9 },{ key: 'Economy', value: 10 },{ key: 'Business', value: 11 },{ key: 'Parking', value: 12 },{ key: 'Revitalize', value: 13 },{ key: 'Preserve', value: 14 },{ key: 'Money', value: 15 },{ key: 'Efficiency', value: 16 },{ key: 'Flood', value: 17 },{ key: 'Green', value: 18 },{ key: 'Climate', value: 19 },{ key: 'Energy', value: 20 },{ key: 'Traffic', value: 21 },{ key: 'Transit', value: 22 },{ key: 'Health', value: 23 },{ key: 'Active', value: 24 },{ key: 'Amenities', value: 25 },{ key: 'Programming', value: 26 },{ key: 'Future', value: 27 },{ key: 'Technology', value: 28 },{ key: 'Safety', value: 29 }]
-
-// randomize the wordBank layout
-function randomizeBank(words) {
-    let values = []
-    let valuesMax = 30
-    let diff = 0
-
-    words.forEach(function(word) {    
-        let addingVal = true
-
-        while(addingVal){
-
-            var val = Math.floor(Math.random() * (valuesMax - 1) + 1)
-
-            if(values.indexOf(val) === -1){
-
-                // update the array and assign the value for the word
-                word.value = val
-                values.push(val)
-
-                // reduce the random generator range by 1 for every max that it hits (counting backwards from max) so that this doesn't run forever
-                if(val === (valuesMax - diff)){
-                    valuesMax = val
-                    diff++
-                }
-
-                // exit the loop and move on to the next word
-                addingVal = false
-            }
-        }
-    })
-
-    // sort the newly randomized array by value
-    words.sort(function(a, b){
-        return a.value - b.value
-    })
-
-    return words
-}
-
-wordBank = randomizeBank(wordBank)
 
 
 /* Word Cloud Function from https://github.com/shprink/d3js-wordcloud */
@@ -565,17 +523,16 @@ function draw(data, bounds) {
 }
 
 function update() {
-    wordBank = randomizeBank(wordBank)
-
     layout.font('roboto').spiral('archimedean');
 
     fontSize = d3.scale['sqrt']().range([30, 80]);
 
-    if (wordBank.length){
-        fontSize.domain([+wordBank[wordBank.length - 1].value || 1, +wordBank[0].value]);
-    }
+    fontSize.domain([+wordBank[wordBank.length - 1].value || 1, +wordBank[0].value]);
     
     layout.stop().words(wordBank).start();
 }
 
-update()
+// reload the wordcloud to avoid edge case where only 1 word displays
+window.onload = function(){
+    update()
+}
