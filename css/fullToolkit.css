@@ -86,22 +86,17 @@ main{
 .toolkit-title-wrapper{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 2%;
 }
 .icon{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     margin: 0 3%;
 }
 .toolkit-title{
     text-align: center;
-}
-.toolkit-group-description{
-    width: 85%;
-    margin: 0 auto;
-    padding-bottom: 3%;
 }
 
 

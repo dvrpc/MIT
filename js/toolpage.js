@@ -18,9 +18,26 @@ const getToolInfo = (async () => {
     
     if(!response.error){
         populateToolMain(response.content, response.img, response.name, response.categories)
-        populateToolLinks(response.case_studies, response.cases, response.models, response.ordinances, response.resources)
+        populateToolLinks(response.case_studies, response.ordinances, response.resources)
     }else{
         // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
+    }
+})()
+
+const getAdditionalToools = (async () => {
+    const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'})
+    const options = {
+        method: 'GET',
+        mode: 'cors',
+        headers
+    }
+
+    const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/section/tool/${safeID}`, options)
+    const response = await stream.json()
+
+    if(!response.error){
+        const tools = response.tools
+        populateSeeAlso(tools)
     }
 })()
 
@@ -82,8 +99,7 @@ buildCategoryIcons = (categories, fragment) => {
 
 
 /***** fill out the external links for the tool *****/
-populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
-    const comboModelsAndOrdinances = models.concat(ordinances)
+populateToolLinks = (caseStudies, ordinances, resources) => {
 
     // get a hold of the necessary elements
     const resourceBox = document.getElementById('toolpage-resources')
@@ -98,7 +114,7 @@ populateToolLinks = (caseStudies, cases, models, ordinances, resources) => {
     caseStudies.length ? buildInfoLink(caseStudies, caseStudiesFragment) : caseStudiesFragment.appendChild(noLink('case studies'))
 
     const modelAndDesignFragment = document.createDocumentFragment()
-    comboModelsAndOrdinances.length ? buildInfoLink(comboModelsAndOrdinances, modelAndDesignFragment) : modelAndDesignFragment.appendChild(noLink('model ordinances & design guidelines'))
+    ordinances.length ? buildInfoLink(ordinances, modelAndDesignFragment) : modelAndDesignFragment.appendChild(noLink('model ordinances & design guidelines'))
 
     resourceBox.appendChild(resourceFragment)
     caseStudiesBox.appendChild(caseStudiesFragment)
@@ -166,4 +182,26 @@ for(var i = 0; i < length; i++){
             panel.style.maxHeight = panel.scrollHeight + 'px'
         }
     }
+}
+
+
+/****** fill out the See Also section ******/
+const populateSeeAlso = relatedTools => {
+    const frag = document.createDocumentFragment()
+
+    relatedTools.forEach(tool => {
+        if(tool._id !== safeID) {
+            const link = document.createElement('a')
+            
+            link.classList.add('see-also-links')
+
+            link.textContent = tool.name
+            link.href = "/Connections2045/MIT/toolpage.html?tool="+tool._id
+
+            frag.appendChild(link)
+        }
+    })
+
+    const seeAlso = document.getElementById('see-also')
+    seeAlso.appendChild(frag)
 }

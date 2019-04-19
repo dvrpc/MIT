@@ -63,8 +63,8 @@ nav{
     justify-content: flex-end;
 }
 .icon{
-    height: 45px;
-    width: 45px;
+    height: 55px;
+    width: 55px;
     border-radius: 50%;
     margin: 0 3%;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
@@ -184,20 +184,21 @@ figcaption{
 /* See Also  */
 #see-also-header{
     text-align: center;
-    margin: 3% 0 2% 0;
+    margin-top: 3%;
 }
-#see-also-list{
-    width: 30%;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    background: #fff;
-    padding: 0 0 0 2%;
-    border-radius: 3px;
+#see-also{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3%;
 }
-.see-also-items{
-    padding: 2% 0;
-    width: 100%;
-    border-bottom: 1px solid #d8dbe2;
+.see-also-links{
+    padding: 0 2%;
+    margin: 1% 0;
+    border-right: 2px solid #141115; 
+}
+.see-also-links:last-child{
+    border-right: none;
 }
 
 /* Contact */
@@ -293,6 +294,7 @@ footer a{
     #toolpage-more-info{
         width: inherit;
         align-items: center;
+        margin: 0 auto;
     }
     #see-also-list{
         width: 85%;
