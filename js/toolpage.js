@@ -24,6 +24,7 @@ const getToolInfo = (async () => {
     }
 })()
 
+// get related tools from the API
 const getAdditionalToools = (async () => {
     const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'})
     const options = {
@@ -38,6 +39,8 @@ const getAdditionalToools = (async () => {
     if(!response.error){
         const tools = response.tools
         populateSeeAlso(tools)
+    }else{
+        // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
     }
 })()
 
@@ -186,6 +189,7 @@ for(var i = 0; i < length; i++){
 
 
 /****** fill out the See Also section ******/
+// @TODO: add some text to put in case the only related tool is itself. Something like "no related tools" - ask Jackie what it should be
 const populateSeeAlso = relatedTools => {
     const frag = document.createDocumentFragment()
 
