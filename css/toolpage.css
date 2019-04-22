@@ -69,6 +69,7 @@ nav{
     align-items: center;
     /* padding to offset the 5% icon margin-bottom to keep the icons center aligned */
     padding-top: 5%;
+    text-decoration: none;
 }
 .icon{
     height: 55px;

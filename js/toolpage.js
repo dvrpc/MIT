@@ -44,20 +44,6 @@ const getAdditionalToools = (async () => {
     }
 })()
 
-/***** Create tooltips for the category icons ******/
-const createTooltip = name => {
-    const tooltip = document.createElement('div')
-    const text = document.createElement('span')
-
-    tooltip.classList.add('tooltip')
-    text.classList.add('tooltip-text')
-
-    text.textContent = name
-
-    tooltip.appendChild(text)
-
-    return tooltip
-}
 
 /***** Fill out the main content for the tool *****/
 populateToolMain = (content, image, name, categories) => {
@@ -92,20 +78,53 @@ populateToolMain = (content, image, name, categories) => {
     textWrapper.insertAdjacentHTML('beforeend', content)
 }
 
-// lookup table to map categories to img filenames
+// lookup table to map categories to img filenames & full toolkit hash 
 const catMap = {
-    Economy: 'econo-icon.png',
-    'Livable Communities': 'comm-icon.png',
-    Environment: 'enviro-icon.png',
-    Equity: 'equity-icon.png',
-    Transportation: 'transpo-icon.png'
+    Economy: {
+        img: 'econo-icon.png',
+        hash: 'economy-accordions'
+    },
+    'Livable Communities': {
+        img: 'comm-icon.png',
+        hash: 'communities-accordions'
+    },
+    Environment: {
+        img: 'enviro-icon.png',
+        hash: 'environment-accordions'
+    },
+    Equity: {
+        img: 'equity-icon.png',
+        hash: 'equity-accordions'
+    },
+    Transportation: {
+        img: 'transpo-icon.png',
+        hash: 'transportation-accordions'
+    }
+}
+
+// function to create tooltips for the category icons
+const createTooltip = name => {
+    const tooltip = document.createElement('div')
+    const text = document.createElement('span')
+
+    tooltip.classList.add('tooltip')
+    text.classList.add('tooltip-text')
+
+    text.textContent = name
+
+    tooltip.appendChild(text)
+
+    return tooltip
 }
 
 buildCategoryIcons = (categories, fragment) => {
     categories.forEach(category => {
-        const wrapper = document.createElement('div')
+        const wrapper = document.createElement('a')
         const img = document.createElement('img')
-        const src = catMap[category]
+        const src = catMap[category].img
+
+        // link the imgs to the corresponding full toolkit section
+        wrapper.href = `/Connections2045/MIT/fullToolkit.html#${catMap[category].hash}`
         
         img.src = `./img/toolpages/${src}`
         img.alt = `${category} icon`

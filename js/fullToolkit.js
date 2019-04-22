@@ -143,3 +143,15 @@ const toggleAccordions = accordion => {
         panel.style.maxHeight = panel.scrollHeight + 'px'
     }
 }
+
+// listen for zoom jawns?
+const zoomToSection = () => {
+    const hash = window.location.hash
+    if(hash) {
+        if(hash.split('-'[1] === 'accordions')){
+            const el = document.getElementById(hash)
+            el.scrollTo({behavior: 'smooth'})
+        }
+    }
+}
+window.onload = () => zoomToSection()
