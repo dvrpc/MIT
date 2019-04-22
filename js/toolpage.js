@@ -44,8 +44,22 @@ const getAdditionalToools = (async () => {
     }
 })()
 
+/***** Create tooltips for the category icons ******/
+const createTooltip = name => {
+    const tooltip = document.createElement('div')
+    const text = document.createElement('span')
 
-/***** fill out the main content for the tool *****/
+    tooltip.classList.add('tooltip')
+    text.classList.add('tooltip-text')
+
+    text.textContent = name
+
+    tooltip.appendChild(text)
+
+    return tooltip
+}
+
+/***** Fill out the main content for the tool *****/
 populateToolMain = (content, image, name, categories) => {
     // get a hold of necessary elements
     const header = document.getElementById('toolpage-header')
@@ -89,19 +103,29 @@ const catMap = {
 
 buildCategoryIcons = (categories, fragment) => {
     categories.forEach(category => {
+        const wrapper = document.createElement('div')
         const img = document.createElement('img')
         const src = catMap[category]
         
         img.src = `./img/toolpages/${src}`
-        img.classList.add('icon')
         img.alt = `${category} icon`
+        
+        img.classList.add('icon')
+        wrapper.classList.add('icon-wrapper')
 
-        fragment.appendChild(img)
+        // create tooltips for each category icon
+        const tooltip = createTooltip(category)
+        img.onmouseover = () => tooltip.style.visibility = 'visible'
+        img.onmouseleave = () => tooltip.style.visibility = 'hidden'
+        
+        wrapper.appendChild(img)
+        wrapper.appendChild(tooltip)
+        fragment.appendChild(wrapper)
     })
 }
 
 
-/***** fill out the external links for the tool *****/
+/***** Fill out the external links for the tool *****/
 populateToolLinks = (caseStudies, ordinances, resources) => {
 
     // get a hold of the necessary elements
@@ -188,7 +212,7 @@ for(var i = 0; i < length; i++){
 }
 
 
-/****** fill out the See Also section ******/
+/****** Fill out the See Also section ******/
 // @TODO: add some text to put in case the only related tool is itself. Something like "no related tools" - ask Jackie what it should be
 const populateSeeAlso = relatedTools => {
     const frag = document.createDocumentFragment()
