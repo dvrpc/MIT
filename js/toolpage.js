@@ -236,18 +236,26 @@ for(var i = 0; i < length; i++){
 const populateSeeAlso = relatedTools => {
     const frag = document.createDocumentFragment()
 
-    relatedTools.forEach(tool => {
-        if(tool._id !== safeID) {
-            const link = document.createElement('a')
-            
-            link.classList.add('see-also-links')
+    // short out if the only related tool is the current page
+    if(relatedTools.length === 1){
+        const noTools = document.createElement('p')
+        noTools.textContent = 'There are no related tools for this page'
 
-            link.textContent = tool.name
-            link.href = "/Connections2045/MIT/toolpage.html?tool="+tool._id
-
-            frag.appendChild(link)
-        }
-    })
+        frag.appendChild(noTools)
+    }else{
+        relatedTools.forEach(tool => {
+            if(tool._id !== safeID) {
+                const link = document.createElement('a')
+                
+                link.classList.add('see-also-links')
+    
+                link.textContent = tool.name
+                link.href = "/Connections2045/MIT/toolpage.html?tool="+tool._id
+    
+                frag.appendChild(link)
+            }
+        })
+    }
 
     const seeAlso = document.getElementById('see-also')
     seeAlso.appendChild(frag)
