@@ -234,7 +234,7 @@
     }
 
     function cloudFontSize(d) {
-        return Math.sqrt(d.value);
+        return d.value;
     }
 
     // want to return one of -90 or 0
@@ -435,25 +435,20 @@
 
 
 // list of MIT keywords (there's an API that returns the words but I already wrote all this so..)
-var wordBank = [{ key: 'Ageing', value: 1 },{ key: 'Affordability', value: 2 },{ key: 'Housing', value: 3 },{ key: 'Education', value: 4 },{ key: 'Jobs', value: 5 },{ key: 'Downtown', value: 7 },{ key: 'Regional', value: 8 },{ key: 'Agriculture', value: 9 },{ key: 'Business', value: 11 },{ key: 'Parking', value: 12 },{ key: 'Revitalize', value: 13 },{ key: 'Preserve', value: 14 },{ key: 'Money', value: 15 },{ key: 'Flood', value: 17 },{ key: 'Green', value: 18 },{ key: 'Climate', value: 19 },{ key: 'Energy', value: 20 },{ key: 'Traffic', value: 21 },{ key: 'Transit', value: 22 },{ key: 'Health', value: 23 },{ key: 'Active', value: 24 },{ key: 'Amenities', value: 25 },{ key: 'Future', value: 27 },{ key: 'Technology', value: 28 },{ key: 'Safety', value: 29 }]
-
+const setValue = () => Math.floor(Math.random() * (40 - 28)) + 28
+var wordBank = [{ key: 'Ageing', value: setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Money', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
 
 /* Word Cloud Function from https://github.com/shprink/d3js-wordcloud */
 var fill = d3.scale.category20b();
 
-// @TODO: put in a viewport calculation for the width of the cloud. Height is being handled by index.js
-// For some reason, putting the same viewport checking ternary as in index.js causes this script to run forever...
-var w = window.innerWidth / 1.6,
-    h = window.innerHeight / 1.2;
-
-var max,
-    fontSize;
+var w = window.innerWidth / 1.5,
+    h = window.innerHeight / 1.1;
 
 var layout = d3.layout.cloud()
         .timeInterval(Infinity)
         .size([w, h])
         .fontSize(function(d) {
-            return fontSize(+d.value);
+            return d.value
         })
         .text(function(d) {
             return d.key;
@@ -524,12 +519,11 @@ function draw(data, bounds) {
 
 function update() {
     layout.font('roboto').spiral('archimedean');
-
-    fontSize = d3.scale['sqrt']().range([30, 80]);
-
-    fontSize.domain([+wordBank[wordBank.length - 1].value || 1, +wordBank[0].value]);
     
-    layout.stop().words(wordBank).start();
+    var w = window.innerWidth / 1.5,
+    h = window.innerHeight / 1.1;
+
+    layout.stop().size([w, h]).words(wordBank).start();
 }
 
 // reload the wordcloud to avoid edge case where only 1 word displays

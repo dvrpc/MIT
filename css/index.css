@@ -17,10 +17,6 @@ body{
 }
 a{
     background: transparent;
-    /* color options:
-        grey: 607466
-        light blue: rgb(82, 84, 163)
-    */
     color: rgb(82, 84, 163);
 }
 .shadow{
@@ -277,7 +273,7 @@ footer a{
     }
     #problem-statements-wrapper{
         width: 100%;
-        min-height: 20%;
+        height: auto;
     }
     .panel{
         width: 85%;

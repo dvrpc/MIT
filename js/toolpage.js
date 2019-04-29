@@ -38,7 +38,16 @@ const getAdditionalToools = (async () => {
 
     if(!response.error){
         const tools = response.tools
-        populateSeeAlso(tools)
+
+        // remove the See Also elements if there aren't any related tools
+        if(tools.length === 1){
+            const seeAlso = document.getElementById('see-also')
+            const seeAlsoHeader = document.getElementById('see-also-header')
+            seeAlso.remove()
+            seeAlsoHeader.remove()
+        }else{
+            populateSeeAlso(tools)
+        }
     }else{
         // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
     }
@@ -236,26 +245,18 @@ for(var i = 0; i < length; i++){
 const populateSeeAlso = relatedTools => {
     const frag = document.createDocumentFragment()
 
-    // short out if the only related tool is the current page
-    if(relatedTools.length === 1){
-        const noTools = document.createElement('p')
-        noTools.textContent = 'There are no related tools for this page'
+    relatedTools.forEach(tool => {
+        if(tool._id !== safeID) {
+            const link = document.createElement('a')
+            
+            link.classList.add('see-also-links')
 
-        frag.appendChild(noTools)
-    }else{
-        relatedTools.forEach(tool => {
-            if(tool._id !== safeID) {
-                const link = document.createElement('a')
-                
-                link.classList.add('see-also-links')
-    
-                link.textContent = tool.name
-                link.href = "/Connections2045/MIT/toolpage.html?tool="+tool._id
-    
-                frag.appendChild(link)
-            }
-        })
-    }
+            link.textContent = tool.name
+            link.href = "/Connections2045/MIT/toolpage.html?tool="+tool._id
+
+            frag.appendChild(link)
+        }
+    })
 
     const seeAlso = document.getElementById('see-also')
     seeAlso.appendChild(frag)
