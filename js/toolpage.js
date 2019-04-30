@@ -45,6 +45,7 @@ const getAdditionalToools = (async () => {
             const seeAlsoHeader = document.getElementById('see-also-header')
             seeAlso.remove()
             seeAlsoHeader.remove()
+        // otherwise populate them with related tools
         }else{
             populateSeeAlso(tools)
         }
@@ -73,7 +74,7 @@ populateToolMain = (content, image, name, categories) => {
     buildCategoryIcons(categories, categoryFragment)
     categoryIconsWrapper.appendChild(categoryFragment)
 
-    // populate the media figure
+    // populate the media figure if applicable, otherwise remove the media wrapper
     if(img){
         img.src = image
         img.alt = name + ' toolpage image'
@@ -241,7 +242,6 @@ for(var i = 0; i < length; i++){
 
 
 /****** Fill out the See Also section ******/
-// @TODO: add some text to put in case the only related tool is itself. Something like "no related tools" - ask Jackie what it should be
 const populateSeeAlso = relatedTools => {
     const frag = document.createDocumentFragment()
 

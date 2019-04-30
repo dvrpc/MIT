@@ -149,12 +149,8 @@ figcaption{
     width: 80%;
 }
 .accordion{
-    font-size: 1.2em;
+    font-size: 1.2rem;
     text-align: center;
-    /* color alternatives:
-        grey: 595358
-        blue: 4d5061
-    */
     background: rgba(79, 160, 168, 0.1);
     padding: 10px 0;
     color: #484848;
