@@ -275,6 +275,7 @@ footer a{
     nav{
         position: sticky;
         top: 0;
+        z-index: 2;
     }
     h1{
         font-size: 1.5em;
@@ -314,8 +315,13 @@ footer a{
         align-items: center;
         margin: 0 auto;
     }
-    #see-also-list{
-        width: 85%;
+    #see-also{
+        flex-direction: column;
+        align-items: center;
+    }
+    .see-also-links{
+        border: none;
+        margin: 2% 0;
     }
     footer{
         padding: 1% 3%;
