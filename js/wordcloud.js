@@ -437,7 +437,10 @@
 // list of MIT keywords
 let max = window.innerWidth > 800 ? 95 : 45
 let min = window.innerWidth > 800 ? 35 : 15
-const setValue = () => Math.floor(Math.random() * (max - min)) + min
+var setValue = function() {
+    return Math.floor(Math.random() * (max - min)) + min
+}
+    
 var wordBank = [{ key: 'Ageing', value: setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Money', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
 
 /* Word Cloud Function from https://github.com/shprink/d3js-wordcloud */
