@@ -48,6 +48,9 @@ nav{
     font-size: 1.2em;
     color: #f2f2f2;
 }
+.nav-links:visited{
+    color: #f2f2f2;
+}
 #dvrpc-logo{
     width: 70%;
     float: right;
