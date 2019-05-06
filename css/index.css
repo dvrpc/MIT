@@ -199,12 +199,13 @@ g:hover{
 /* Footer */
 footer{
     height: 25vh;
-    width: 100%;
-    padding: 1% 15%;
+    padding: 0 3%;
     background: #545454;
     color: #f7f7f7;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: unset;
 }
 footer a{
     color: #f7f7f7;
@@ -214,14 +215,14 @@ footer a{
     width: 85px;
 }
 #footer-words{
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 70%;
 }
 #footer-links{
-    width: 40%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

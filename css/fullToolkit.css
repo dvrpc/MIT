@@ -36,7 +36,7 @@ a{
 nav{
     margin: 0 auto;
     height: 8vh;
-    padding: 0 3%;
+    padding: 2% 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -164,11 +164,14 @@ main{
 /********* Footer ********/
 footer{
     height: 25vh;
-    padding: 1% 15%;
+    padding: 0 3%;
     background: #545454;
     color: #f7f7f7;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: unset
+
 }
 footer a{
     color: #f7f7f7;
@@ -185,7 +188,7 @@ footer a{
     height: 70%;
 }
 #footer-links{
-    width: 40%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -204,7 +207,7 @@ footer a{
 
 
 
-/******** Footer ********/
+/******** Media Queries ********/
 @media all and (max-width: 950px){
     #intro-text{
         width: 70%;
