@@ -114,9 +114,9 @@ nav{
     display: block;
     float: left;
     margin-left: 0;
+    width: 385px;
 }
 #toolpage-img{
-    width: 500px;
     max-width: 100%;
 }
 figcaption{

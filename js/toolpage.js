@@ -63,8 +63,7 @@ populateToolMain = (content, image, name, categories) => {
     const textWrapper = document.getElementById('toolpage-main-content-wrapper')
     
     // not every toolpage has media
-    let img = image ? document.getElementById('toolpage-img') : false
-    const figcaption = document.getElementById('toolpage-media-caption')
+    let img = image.src.length ? document.getElementById('toolpage-img') : false
 
     // populate the header
     header.textContent = name
@@ -76,9 +75,11 @@ populateToolMain = (content, image, name, categories) => {
 
     // populate the media figure if applicable, otherwise remove the media wrapper
     if(img){
-        img.src = image
+        const figcaption = document.getElementById('toolpage-media-caption')
+        
+        img.src = 'https://www.dvrpc.org/Connections2045/img/MIT/' + image.src
         img.alt = name + ' toolpage image'
-        figcaption.textContent = name
+        figcaption.textContent = image.caption
     }else{
         const media = document.getElementById('toolpage-media')
         media.style.display = 'none'
