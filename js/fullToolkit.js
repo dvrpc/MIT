@@ -147,17 +147,14 @@ const toggleAccordions = accordion => {
 // handle cases where users are navigating from toolpage category icons
 const zoomToSection = () => {
     let hash = window.location.hash
-    if(hash) {
-        
-        // make sure the passed hash follows the right pattern
-        if(hash.split('-'[1] === 'accordions')){
-            hash = hash.substr(1)
-            const el = document.getElementById(hash)
-            el.scrollTo({
-                top: 10,
-                behavior: 'smooth'
-            })
-        }
+    // make sure the passed hash follows the right pattern
+    if(hash && hash.split('-')[1] === 'accordions'){
+        hash = hash.substr(1)
+        const el = document.getElementById(hash)
+        el.scrollTo({
+            top: 10,
+            behavior: 'smooth'
+        })
     }
 }
 window.onload = () => zoomToSection()
