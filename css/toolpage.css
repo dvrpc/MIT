@@ -282,6 +282,75 @@ footer a{
     width: 21px;
 }
 
+/* Print */
+@media print {
+    body{
+        font-size: 20px;
+    }
+    /* expand URL's on print */
+    a:after{
+        content: " (" attr(href) ") ";
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+    /* set accordions to open */
+    .toolpage-links-columns{
+        max-height: inherit;
+    }
+
+    
+    /* standard mobile styles from here to the bottom */
+    #toolpage-wrapper{
+        font-size: 1em;
+        flex-direction: column;
+    }
+    #toolpage-media{
+        width: 40%;
+        float: none;
+    }
+    #toolpage-img{
+        display: block;
+        margin: 0 auto;
+    }
+    #toolpage-main-content-wrapper, .accordion-controls{
+        width: 100%;
+    }
+    .accordion{
+        font-size: 1.1em;
+    }
+    .accordion-controls{
+        margin: 1% 0;
+    }
+    #toolpage-more-info{
+        width: inherit;
+        align-items: center;
+        margin: 0 auto;
+    }
+    #see-also{
+        flex-direction: column;
+        align-items: center;
+    }
+    .see-also-links{
+        border: none;
+        margin: 2% 0;
+    }
+    footer{
+        padding: 1% 3%;
+        font-size: 0.7rem;
+    }
+    #footer-links{
+        width: 40%;
+    }
+    #footer-logo{
+        height: 20px;
+        width: 65px;
+    }
+    .footer-social{
+        height: 15px;
+        width: 15px;
+    }
+}
+
 /* Media Queries */
 @media all and (max-width: 800px){
     body{
