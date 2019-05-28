@@ -120,8 +120,10 @@ nav{
     max-width: 100%;
 }
 figcaption{
-    text-align: center;
-    font-weight: 600;
+    text-align: left;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 0.8em;
 }
 #toolpage-main-content-wrapper{
     width: 50%;
