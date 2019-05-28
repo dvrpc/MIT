@@ -19,28 +19,11 @@ const getToolInfo = (async () => {
     if(!response.error){
         populateToolMain(response.content, response.img, response.name, response.categories)
         populateToolLinks(response.case_studies, response.ordinances, response.resources)
-    }else{
-        // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
-    }
-})()
-
-// get related tools from the API
-const getAdditionalToools = (async () => {
-    const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'})
-    const options = {
-        method: 'GET',
-        mode: 'cors',
-        headers
-    }
-
-    const stream = await fetch(`https://alpha.dvrpc.org/mitoolbox/section/tool/${safeID}`, options)
-    const response = await stream.json()
-
-    if(!response.error){
-        const tools = response.tools
+        
+        const tools = response.relatedTools
 
         // remove the See Also elements if there aren't any related tools
-        if(tools.length === 1){
+        if(tools.length <= 1){
             const seeAlso = document.getElementById('see-also')
             const seeAlsoHeader = document.getElementById('see-also-header')
             seeAlso.remove()
@@ -53,7 +36,6 @@ const getAdditionalToools = (async () => {
         // @TODO: function for some kind of 'we dont know what happened but this page doesnt exist' situation
     }
 })()
-
 
 /***** Fill out the main content for the tool *****/
 populateToolMain = (content, image, name, categories) => {
