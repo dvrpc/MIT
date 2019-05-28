@@ -145,15 +145,15 @@ populateToolLinks = (caseStudies, ordinances, resources) => {
     const caseStudiesBox = document.getElementById('toolpage-case-studies')
     const modelAndDesignBox = document.getElementById('toolpage-ordinances-and-guidelines')
 
-    // build links for each info box that has them, otherwise display a useful "error" message
+    // build links for each info box that has them and remove the ones that don't
     const resourceFragment = document.createDocumentFragment()
-    resources.length ? buildInfoLink(resources, resourceFragment) : resourceFragment.appendChild(noLink('resources'))
+    resources.length ? buildInfoLink(resources, resourceFragment) : resourceBox.parentElement.parentElement.style.display = 'none'
 
     const caseStudiesFragment = document.createDocumentFragment()
-    caseStudies.length ? buildInfoLink(caseStudies, caseStudiesFragment) : caseStudiesFragment.appendChild(noLink('case studies'))
+    caseStudies.length ? buildInfoLink(caseStudies, caseStudiesFragment) : caseStudiesBox.parentElement.parentElement.style.display = 'none'
 
     const modelAndDesignFragment = document.createDocumentFragment()
-    ordinances.length ? buildInfoLink(ordinances, modelAndDesignFragment) : modelAndDesignFragment.appendChild(noLink('model ordinances & design guidelines'))
+    ordinances.length ? buildInfoLink(ordinances, modelAndDesignFragment) : modelAndDesignBox.parentElement.parentElement.style.display = 'none'
 
     resourceBox.appendChild(resourceFragment)
     caseStudiesBox.appendChild(caseStudiesFragment)

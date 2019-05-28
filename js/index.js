@@ -110,12 +110,11 @@ const makeStatementAccordion = (statements, fragment) => {
 const makeTools = (tools, fragment) => {
     tools.forEach(tool => {
         const toolLink = document.createElement('a')
-        const name = toTitleCase(tool.name)
         
         toolLink.classList.add('tools')
         // add the tool ID into the URL so that the toolpage can hydrate the jawn
         toolLink.href="/Connections2045/MIT/toolpage.html?tool="+tool._id
-        toolLink.textContent = name
+        toolLink.textContent = tool.name
         toolLink.target = '_blank'
 
         fragment.appendChild(toolLink)
