@@ -23,7 +23,7 @@ const getToolInfo = (async () => {
         const tools = response.relatedTools
 
         // remove the See Also elements if there aren't any related tools
-        if(tools.length === 1){
+        if(tools.length <= 1){
             const seeAlso = document.getElementById('see-also')
             const seeAlsoHeader = document.getElementById('see-also-header')
             seeAlso.remove()
