@@ -63,7 +63,7 @@ nav{
     width: 60%;
     color: #414042;
     font-weight: 500;
-    font-size: 1.3em;
+    font-size: 1.35em;
 }
 
 
@@ -246,8 +246,8 @@ footer a{
 
 /* Media Queries */
 @media all and (min-width: 1400px){
-    #intro-text{
-        width: 70%;
+    #toolkit-logo{
+        width: 450px;
     }
 }
 @media all and (max-width: 800px){
@@ -263,9 +263,12 @@ footer a{
     }
     #toolkit-logo{
         width: 250px;
+        margin-top: 8%;
     }
     #intro-text{
         width: 97%;
+        font-size: 1.3em;
+        margin: 8% 0;
     }
     #lrp-boxes-container{
         flex-direction: column;

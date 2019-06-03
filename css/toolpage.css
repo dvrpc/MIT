@@ -316,7 +316,7 @@ footer a{
         width: 100%;
     }
     .accordion{
-        font-size: 1.1em;
+        font-size: 1em;
     }
     .accordion-controls{
         margin: 1% 0;
@@ -361,8 +361,14 @@ footer a{
         top: 0;
         z-index: 2;
     }
+    #nav-links-wrapper{
+        width: 50%;
+    }
     h1{
-        font-size: 1.5em;
+        font-size: 1.35em;
+    }
+    h2{
+        font-size: 1.25em;
     }
     #dvrpc-logo{
         width: 45%;
@@ -372,24 +378,33 @@ footer a{
         height: 40px;
     }
     #toolpage-header-wrapper{
-        padding: 3%;
+        padding: 5% 3%;
+    }
+    #toolpage-header-icons{
+        width: auto;
     }
     #toolpage-wrapper{
         flex-direction: column;
     }
+    .tooltip{
+        display: none;
+    }
     #toolpage-media{
         float: none;
         margin: 5% 0;
+        width: auto;
     }
     #toolpage-img{
+        max-width: 250px;
         display: block;
         margin: 0 auto;
+
     }
     #toolpage-main-content-wrapper, .accordion-controls{
         width: 100%;
     }
     .accordion{
-        font-size: 1.1em;
+        font-size: 1em;
     }
     .accordion-controls{
         margin: 1% 0;
@@ -397,11 +412,15 @@ footer a{
     #toolpage-more-info{
         width: inherit;
         align-items: center;
-        margin: 0 auto;
+        margin: 3% auto;
     }
     #see-also{
         flex-direction: column;
         align-items: center;
+        margin-bottom: 6%;
+    }
+    #see-also-header{
+        margin-top: 6%;
     }
     .see-also-links{
         border: none;
@@ -421,10 +440,5 @@ footer a{
     .footer-social{
         height: 15px;
         width: 15px;
-    }
-}
-@media all and (max-width: 600px) {
-    #toolpage-img{
-        width: 300px;
     }
 }
