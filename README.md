@@ -1,5 +1,5 @@
 # Municipal Implementation Toolbox
-Updating the Connections2045 Municipal Implementation Toolbox to a more interactive tool
+DVRPC has designed this online toolbox to serve as a guide for municipalities to help implement the goals of Connections 2045, the region’s Long-range Plan. It contains resources, case studies, and model/sample ordinances for tools that are most useful for implementing the 5 Core Principles of the Plan.
 
 ## Build Process
 For the entire folder:
