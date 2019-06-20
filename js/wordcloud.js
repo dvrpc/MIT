@@ -434,24 +434,24 @@
 // END wordcloud code
 
 
-// list of MIT keywords
-let max = window.innerWidth > 800 ? 95 : 45
-let min = window.innerWidth > 800 ? 35 : 15
+// generate random values for MIT keywords and scale based on window size
 var setValue = function() {
+    let max, min;
+    if(window.innerWidth > 800 ){
+        max = 65
+        min = 35
+    }else{
+        max = 35
+        min = 15
+    }
     return Math.floor(Math.random() * (max - min)) + min
 }
-    
-var wordBank = [{ key: 'Aging', value: setValue() },{ key:"People", value:setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Money', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
 
 /* Word Cloud Function from https://github.com/shprink/d3js-wordcloud */
 var fill = d3.scale.category20b();
 
-var w = window.innerWidth / 1.5,
-    h = window.innerHeight / 1.3;
-
 var layout = d3.layout.cloud()
         .timeInterval(Infinity)
-        .size([w, h])
         .fontSize(function(d) {
             return d.value
         })
@@ -461,10 +461,7 @@ var layout = d3.layout.cloud()
         .on("end", draw);
 
 var svg = d3.select("#word-cloud")
-        .attr("width", w)
-        .attr("height", h);
-
-var vis = svg.append("g").attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
+var vis = svg.append("g")
 
 if(window.attachEvent) {
     window.attachEvent('onresize', update);
@@ -473,9 +470,16 @@ else if(window.addEventListener) {
     window.addEventListener('resize', update);
 }
 
-function draw(data, bounds) {    
-    var w = window.innerWidth / 1.6,
-        h = window.innerHeight / 1.2;
+function draw(data, bounds) {
+
+    // get a handle on the parent container to calculate word cloud height and width from
+    const container = document.getElementById('cloud-container')
+    var w = container.clientWidth
+    var h = container.clientHeight
+
+    // subtract the space taken by the problem statements (width) and padding top (height)
+    w = w - (w * 0.28)
+    h = h - (h * 0.05)
 
     svg.attr("width", w).attr("height", h);
 
@@ -524,9 +528,17 @@ function draw(data, bounds) {
 
 function update() {
     layout.font('roboto').spiral('archimedean');
-    
-    var w = window.innerWidth / 1.5,
-    h = window.innerHeight / 1.1;
+
+    const container = document.getElementById('cloud-container')
+    var w = container.clientWidth
+    var h = container.clientHeight
+
+    // subtract the space taken by the problem statements (width) and padding top (height)
+    w = w - (w * 0.28)
+    h = h - (h * 0.05)
+
+    // recreate the wordbank on every resize to make sure the font scales properly
+    var wordBank = [{ key: 'Aging', value: setValue() },{ key:"People", value:setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Money', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
 
     layout.stop().size([w, h]).words(wordBank).start();
 }
