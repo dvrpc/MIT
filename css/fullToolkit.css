@@ -20,9 +20,6 @@ h1{
 h2{
     font-size: 1.4em;
 }
-.shadow{
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
-}
 a{
     background: transparent;
     color: #404b53;
@@ -56,8 +53,8 @@ nav{
     margin: 4% 3%;
 }
 #intro-text{
-    font-size: 1em;
-    width: 50%;
+    font-size: 1.4em;
+    width: 65%;
     margin: 0 auto;
 }
 
@@ -117,9 +114,10 @@ main{
     outline: none;
     border: none;
 }
-.accordion:after{
+.accordion:before{
     content: '\02795';
-    float: right;
+    float: left;
+    padding-right: 10px;
 }
 .accordion:hover{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -127,11 +125,12 @@ main{
 .active{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
-.active:after{
+.active:before{
     content: '\2212';
+    padding-right: 10px;
 }
 .panel{
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     background: #e9e9e9;
     color: #141115;
@@ -229,6 +228,7 @@ footer a{
         margin: 8% 3%;
     }
     #intro-text{
+        font-size: 1.2em;
         width: 90%;
     }
     main{

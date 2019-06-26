@@ -52,8 +52,8 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 4%;
-    border-bottom: 10px solid #4fa3a8;
+    padding-bottom: 2%;
+    border-bottom: 3px solid #4fa3a8;
 }
 #toolkit-logo{
     width: 400px;
@@ -75,7 +75,7 @@ nav{
 
 /* LRP Boxes */
 #lrp-boxes-container{
-    margin: 5% 0;
+    margin: 2% 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -93,6 +93,10 @@ nav{
     font-size: 1.3em;
     border-radius: 3px;
 }
+.lrp-box-divider{
+    height: 180px;
+    border: 1px solid #4fa3a8;
+}
 .lrp-box a{
     text-decoration: none;
 }
@@ -103,6 +107,7 @@ nav{
 figcaption{
     text-align: center;
     color: #4fa3a8;
+    line-height: 1;
 }
 
 
@@ -111,16 +116,17 @@ figcaption{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #4fa3a8;
 }
 /* wordcloud won't take up more than the allotted space left by problem statements. not sure if these  even do anything...*/
 #word-cloud{
-    padding-top: 4%;
+    padding-top: 3%;
     max-width: 72%;
     height: 100%;
 }
 g:hover{
     cursor: pointer;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
 }
 /* problem statements same width as one of the LRP boxes */
 #problem-statements-wrapper{
@@ -133,7 +139,8 @@ g:hover{
 #default-statement{
     color: #414042;
     font-size: 1.2em;
-    margin: 0;
+    margin-top: 10%;
+    text-align: right;
 }
 
 .accordion-controls{
@@ -144,7 +151,7 @@ g:hover{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 .panel{
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     background: #e9e9e9;
     color: #141115;
@@ -171,15 +178,16 @@ g:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: left;
 }
-.problem-statement-btn:after {
-    margin-left: 5px;
+.problem-statement-btn:before {
     content: '\02795';
-    font-size: 14px;
+    float: left;
+    padding-right: 10px;
 }
-.active:after {
+.active:before{
     content: '\2212';
-    font-size: 14px;
+    padding-right: 10px;
 }
 .problem-statement-btn:hover{
     cursor: pointer;
@@ -270,6 +278,10 @@ footer a{
         font-size: 1.3em;
         margin: 8% 0;
     }
+    #default-statement{
+        text-align: center;
+        margin: 0;
+    }
     #lrp-boxes-container{
         flex-direction: column;
     }
@@ -277,15 +289,15 @@ footer a{
         width: 60%;
         margin-bottom: 3%;
     }
+    .lrp-box-divider{
+        display: none;
+    }
     #cloud-container{
         flex-direction: column-reverse;
     }
     #problem-statements-wrapper{
         width: 100%;
         height: auto;
-    }
-    .panel{
-        width: 85%;
     }
     footer{
         padding: 1% 3%;
