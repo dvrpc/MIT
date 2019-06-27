@@ -53,8 +53,8 @@ nav{
     margin: 4% 3%;
 }
 #intro-text{
-    font-size: 1.4em;
-    width: 65%;
+    font-size: 1.3em;
+    width: 63%;
     margin: 0 auto;
 }
 
@@ -205,9 +205,9 @@ footer a{
 
 
 /******** Media Queries ********/
-@media all and (max-width: 950px){
+@media all and (min-width: 1400px){
     #intro-text{
-        width: 70%;
+        width: 50%;
     }
 }
 @media all and (max-width: 800px){
