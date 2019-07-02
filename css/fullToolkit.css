@@ -1,0 +1,259 @@
+/* General */
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    background: #f2f2f2;
+}
+h1{
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 2% 0;
+}
+h2{
+    font-size: 1.4em;
+}
+a{
+    background: transparent;
+    color: #404b53;
+}
+a:visited{
+    color: rgb(82, 84, 163);
+}
+
+/*********** Navbar ***********/
+nav{
+    height: 10vh;
+    padding: 2% 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(79, 163, 168);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+}
+#nav-back-home{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #f2f2f2;
+}
+#dvrpc-logo{
+    width: 70%;
+    float: right;
+}
+
+/********* Intro Section **********/
+#intro-section {
+    margin: 4% 3%;
+}
+#intro-text{
+    font-size: 1.3em;
+    width: 63%;
+    margin: 0 auto;
+}
+
+hr {
+    height: 0;
+    margin: 0 auto;
+    box-sizing: content-box;
+    border: 0;
+    border-top: 1px solid #ddd;
+    clear: both;
+}
+
+/************** Main **************/
+main{
+    margin: 3% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.toolkit-group{
+    width: 44%;
+    margin-bottom: 4%;
+}
+.toolkit-title-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 3%;
+}
+
+
+/*********** Accordions ***********/
+.accordion-controls{
+    padding: 0;
+    list-style-type: none;
+    margin-left: 3%;
+    width: 100%;
+    margin: 0 auto;
+}
+.accordion{
+    margin-top: 1%;
+    background: rgba(79, 160, 168, 0.1);
+    color: #484848;
+    border-radius: 7px;
+    font-size: 1em;
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    transition: 0.4s;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+.accordion:before{
+    content: '\02795';
+    float: left;
+    padding-right: 10px;
+}
+.accordion:hover{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.active{
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.active:before{
+    content: '\2212';
+    padding-right: 10px;
+}
+.panel{
+    width: 100%;
+    margin: 0 auto;
+    background: #e9e9e9;
+    color: #141115;
+    padding: 0 18px;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.accordion-content-list{
+    list-style-type: none;
+    padding: 0;
+}
+.accordion-content-list li{
+    margin: 3% 0;
+}
+
+
+/* Contact */
+#contact{
+	background-color: #ddd;
+	padding: 7px 7px 7px 3%;
+	font-style: italic;
+}
+
+
+/********* Footer ********/
+footer{
+    height: 25vh;
+    padding: 0 3%;
+    background: #545454;
+    color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: unset
+
+}
+footer a{
+    color: #f7f7f7;
+}
+#footer-logo{
+    height: 30px;
+    width: 85px;
+}
+#footer-words{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+}
+#footer-links{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 70%;
+}
+#footer-social-wrapper{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-social{
+    height: 19px;
+    width: 21px;
+}
+
+
+
+/******** Media Queries ********/
+@media all and (min-width: 1400px){
+    #intro-text{
+        width: 50%;
+    }
+}
+@media all and (max-width: 800px){
+    body{
+        font-size: 14px;
+    }
+    nav{
+        position: sticky;
+        top: 0;
+    }
+    h1{
+        font-size: 1.8em;
+    }
+    #dvrpc-logo{
+        width: 45%;
+    }
+    #intro-section{
+        margin: 8% 3%;
+    }
+    #intro-text{
+        font-size: 1.2em;
+        width: 90%;
+    }
+    main{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .toolkit-group{
+        width: 90%;
+        margin-bottom: 15%;
+    }
+    footer{
+        padding: 1% 3%;
+        font-size: 0.7rem;
+    }
+    #footer-links{
+        width: 40%;
+    }
+    #footer-logo{
+        height: 20px;
+        width: 65px;
+    }
+    .footer-social{
+        height: 15px;
+        width: 15px;
+    }
+}
