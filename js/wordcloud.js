@@ -463,11 +463,17 @@ var layout = d3.layout.cloud()
 var svg = d3.select("#word-cloud")
 var vis = svg.append("g")
 
+// update the wordcloud on resize except on mobile
+let isMobile;
+const windowWidth = window.innerWidth
+if(windowWidth <= 420) isMobile = true
+
 if(window.attachEvent) {
-    window.attachEvent('onresize', update);
+    if(!isMobile) window.attachEvent('onresize', update);
 }
+
 else if(window.addEventListener) {
-    window.addEventListener('resize', update);
+    if(!isMobile) window.addEventListener('resize', update);
 }
 
 function draw(data, bounds) {
