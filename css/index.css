@@ -52,7 +52,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 2%;
+    padding: 2% 0;
     border-bottom: 3px solid #4fa3a8;
 }
 #toolkit-logo{
@@ -63,7 +63,7 @@ nav{
     width: 60%;
     color: #414042;
     font-weight: 500;
-    font-size: 1.35em;
+    font-size: 1.2em;
 }
 
 
@@ -269,9 +269,11 @@ footer a{
         flex-direction: column;
         align-items: center;
     }
+    #toolkit-logo-link{
+        margin-top: 8%;
+    }
     #toolkit-logo{
         width: 250px;
-        margin-top: 8%;
     }
     #intro-text{
         width: 97%;
@@ -281,6 +283,9 @@ footer a{
     #default-statement{
         text-align: center;
         margin: 0;
+    }
+    #word-cloud{
+        padding-top: 0;
     }
     #lrp-boxes-container{
         flex-direction: column;
@@ -298,6 +303,7 @@ footer a{
     #problem-statements-wrapper{
         width: 100%;
         height: auto;
+        padding: 3% 0;
     }
     footer{
         padding: 1% 3%;

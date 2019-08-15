@@ -14,7 +14,7 @@ body{
 }
 h1{
     text-align: center;
-    font-size: 2em;
+    font-size: 1.9em;
     margin: 0 0 2% 0;
 }
 h2{
@@ -30,8 +30,8 @@ a:visited{
 
 /*********** Navbar ***********/
 nav{
-    height: 10vh;
-    padding: 2% 3%;
+    height: 9vh;
+    padding: 0 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +53,7 @@ nav{
     margin: 4% 3%;
 }
 #intro-text{
-    font-size: 1.3em;
+    font-size: 1.2em;
     width: 63%;
     margin: 0 auto;
 }

@@ -485,7 +485,7 @@ function draw(data, bounds) {
 
     // subtract the space taken by the problem statements (width) and padding top (height)
     w = w - (w * 0.28)
-    h = h - (h * 0.05)
+    h = isMobile ? h - (h * 0.09) : h - (h * 0.05)
 
     svg.attr("width", w).attr("height", h);
 
