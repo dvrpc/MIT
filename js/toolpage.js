@@ -17,6 +17,7 @@ const getToolInfo = (async () => {
     const response = await stream.json()
     
     if(!response.error){
+        console.log('response is ', response)
         populateToolMain(response.content, response.img, response.name, response.categories)
         populateToolLinks(response.case_studies, response.ordinances, response.resources)
         
@@ -61,7 +62,18 @@ populateToolMain = (content, image, name, categories) => {
         
         img.src = 'https://www.dvrpc.org/Connections2045/img/MIT/' + image.src
         img.alt = name + ' toolpage image'
-        figcaption.textContent = image.caption
+        
+        if(image.caption.length) figcaption.insertAdjacentHTML('afterbegin', image.caption)
+        
+        // handle maps
+        if(image.href) {
+            const media = document.getElementById('toolpage-media')
+            const imgLink = document.createElement('a')
+            imgLink.href = image.href
+            imgLink.target = '_blank'
+            imgLink.appendChild(img)
+            media.insertBefore(imgLink, figcaption)
+        }
     }else{
         const media = document.getElementById('toolpage-media')
         media.style.display = 'none'
