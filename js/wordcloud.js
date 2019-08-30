@@ -417,8 +417,8 @@
         canvas.height = ch / ratio;
     } else {
         // node-canvas support
-        var Canvas = require("canvas");
-        canvas = new Canvas(cw << 5, ch);
+        //var Canvas = require("canvas");
+        //canvas = new Canvas(cw << 5, ch);
     }
 
     var c = canvas.getContext("2d"),
