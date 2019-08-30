@@ -7,9 +7,6 @@ const defaultStatement = document.querySelector('#default-statement')
 // set the height of the container to match that of the word cloud (include mobile breakpoint)
 cloudContainer.style.height = window.innerWidth > 800 ? window.innerHeight / 1.2+'px' : window.innerHeight / 0.9+'px'
 
-// generate problem statements from the clicked wordcloud keywords
-g.onclick = e => getProblemStatements(e.target)
-
 const toTitleCase = keyword => keyword[0] + keyword.substr(1).toLowerCase()
 
 const muteOtherKeywords = keyword => {
@@ -121,7 +118,7 @@ const makeTools = (tools, fragment) => {
     })
 }
 
-removeStatementAccordion = accordionWrappers => accordionWrappers.forEach(accordionWrapper => accordionWrapper.remove())
+const removeStatementAccordion = accordionWrappers => accordionWrappers.forEach(accordionWrapper => accordionWrapper.remove())
 
 // add the interactive jawns
 const addAccordionFunctionality = accordions => {
@@ -154,3 +151,6 @@ const addAccordionFunctionality = accordions => {
         }
     }
 }
+
+// generate problem statements from the clicked wordcloud keywords
+g.onclick = e => getProblemStatements(e.target)

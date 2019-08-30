@@ -436,7 +436,7 @@
 
 // generate random values for MIT keywords and scale based on window size
 var setValue = function() {
-    let max, min;
+    var max, min;
     if(window.innerWidth > 800 ){
         max = 65
         min = 35
@@ -464,7 +464,7 @@ var svg = d3.select("#word-cloud")
 var vis = svg.append("g")
 
 // update the wordcloud on resize except on mobile
-let isMobile;
+var isMobile;
 const windowWidth = window.innerWidth
 if(windowWidth <= 420) isMobile = true
 
@@ -489,7 +489,7 @@ function draw(data, bounds) {
 
     svg.attr("width", w).attr("height", h);
 
-    scale = bounds ? Math.min(
+    var scale = bounds ? Math.min(
             w / Math.abs(bounds[1].x - w / 2),
             w / Math.abs(bounds[0].x - w / 2),
             h / Math.abs(bounds[1].y - h / 2),
@@ -545,7 +545,6 @@ function update() {
 
     // recreate the wordbank on every resize to make sure the font scales properly
     var wordBank = [{ key: 'Aging', value: setValue() },{ key:"People", value:setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Finance', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
-
     layout.stop().size([w, h]).words(wordBank).start();
 }
 

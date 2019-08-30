@@ -17,13 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/toolpage.css">
     <script>
-        window.onload = function() {
-            const script = document.createElement("script");
-            script.src = "fetch" in window ? "./js/toolpage.js" : "./js/ie/toolpage.js";
-            document.getElementsByTagName("head")[0].appendChild(script);
-        }
+        // handle ie
+        const script = document.createElement("script");
+        script.defer = true
+        script.src = "fetch" in window ? "./js/toolpage.js" : "./js/ie/toolpage.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+
+        // handle analytics
+        var _gaq = [['_setAccount', 'UA-9825778-1'], ['_trackPageview']];
     </script>
-    <script>var _gaq = [['_setAccount', 'UA-9825778-1'], ['_trackPageview']];</script>
     <script async src="//www.google-analytics.com/ga.js"></script> 
 </head>
 <body>

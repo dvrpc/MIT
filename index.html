@@ -17,13 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <script>
-        window.onload = function() {
-            const script = document.createElement("script");
-            script.src = "fetch" in window ? "./js/index.js" : "./js/ie/index.js";
-            document.getElementsByTagName("head")[0].appendChild(script);
-        }
+        // handle ie
+        const script = document.createElement("script");
+        script.defer = true
+        script.src = "fetch" in window ? "./js/index.js" : "./js/ie/index.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+
+        // handle analytics
+        var _gaq = [['_setAccount', 'UA-9825778-1'], ['_trackPageview']];
     </script>
-    <script>var _gaq = [['_setAccount', 'UA-9825778-1'], ['_trackPageview']];</script>
     <script async src="//www.google-analytics.com/ga.js"></script> 
 </head>
 <body>
@@ -39,7 +41,7 @@
         </a>
         <div id="intro-text">
             <p>The Delaware Valley Regional Planning Commission (DVRPC) is responsible for long-range planning at the regional scale, but implementation of the plan—and much of our collective future—is based on how the region’s 352 municipalities use their home-rule authority to influence land use, provide public services, protect natural and historic resources, and, ultimately, create the places we call home. DVRPC provides different forms of technical assistance to help local governments tackle challenges today to improve or retain the region’s competitive advantages for tomorrow.</p>
-            <p>DVRPC has designed this Municipal Implementation Toolbox to serve as a guide for municipalities to help implement the goals of Connections 2045, the region’s Long-Range Plan. It contains resources, case studies, and model/sample ordinances for more than 60 tools municipalities can use to implement the 5 Core Principles of the Plan in their own jurisdictions. Scroll down to find the tools that best fit your municipality’s needs, either by using the interactive word cloud, or by viewing the <a href="/Connections2045/MIT/fullToolkit.html">full toolkit</a>.</p></p>
+            <p>DVRPC has designed this Municipal Implementation Toolbox to serve as a guide for municipalities to help implement the goals of Connections 2045, the region’s Long-Range Plan. It contains resources, case studies, and model/sample ordinances for more than 60 tools municipalities can use to implement the 5 Core Principles of the Plan in their own jurisdictions. Scroll down to find the tools that best fit your municipality’s needs, either by using the interactive word cloud, or by viewing the <a href="/Connections2045/MIT/fullToolkit.html">full toolkit</a>.</p>
         </div>
     </section>
 

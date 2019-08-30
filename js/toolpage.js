@@ -17,7 +17,6 @@ const getToolInfo = (async () => {
     const response = await stream.json()
     
     if(!response.error){
-        console.log('response is ', response)
         populateToolMain(response.content, response.img, response.name, response.categories)
         populateToolLinks(response.case_studies, response.ordinances, response.resources)
         
@@ -76,7 +75,11 @@ const populateToolMain = (content, image, name, categories) => {
         }
     }else{
         const media = document.getElementById('toolpage-media')
+        const contentWrapper = document.getElementById('toolpage-main-content-wrapper')
+
+        // hide media jawn and bump up the contentWrapper size
         media.style.display = 'none'
+        contentWrapper.style.width = '72%'
     }
 
     // populate the main paragraph
