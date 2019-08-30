@@ -4,9 +4,11 @@ DVRPC has designed this online toolbox to serve as a guide for municipalities to
 ## Build Process
 For the entire folder:
 - npx babel js --out-dir build
+- npx webpack --mode=production
 - copy the files in the build folder over to staging
 
 For individual files:
 - cd js
 - npx babel filename.js --out-file filename-compiled.js
+- npx webpack filename.js -o ../ build/ie/filename.js
 - copy the compiled files over to staging

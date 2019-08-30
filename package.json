@@ -4,7 +4,7 @@
   "description": "municipal implementation toolbox",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel js --out-dir build && webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,14 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
-    "@babel/plugin-transform-arrow-functions": "^7.2.0",
-    "@babel/plugin-transform-async-to-generator": "^7.4.4",
-    "@babel/plugin-transform-template-literals": "^7.4.4",
-    "babel-preset-minify": "^0.5.0"
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.2.1",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "whatwg-fetch": "^3.0.0"
+  }
 }

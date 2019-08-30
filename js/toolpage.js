@@ -39,7 +39,7 @@ const getToolInfo = (async () => {
 })()
 
 /***** Fill out the main content for the tool *****/
-populateToolMain = (content, image, name, categories) => {
+const populateToolMain = (content, image, name, categories) => {
     // get a hold of necessary elements
     const header = document.getElementById('toolpage-header')
     const categoryIconsWrapper = document.getElementById('toolpage-header-icons')
@@ -122,7 +122,7 @@ const createTooltip = name => {
     return tooltip
 }
 
-buildCategoryIcons = (categories, fragment) => {
+const buildCategoryIcons = (categories, fragment) => {
     categories.forEach(category => {
         const wrapper = document.createElement('a')
         const img = document.createElement('img')
@@ -150,7 +150,7 @@ buildCategoryIcons = (categories, fragment) => {
 
 
 /***** Fill out the external links for the tool *****/
-populateToolLinks = (caseStudies, ordinances, resources) => {
+const populateToolLinks = (caseStudies, ordinances, resources) => {
 
     // get a hold of the necessary elements
     const resourceBox = document.getElementById('toolpage-resources')
@@ -173,7 +173,7 @@ populateToolLinks = (caseStudies, ordinances, resources) => {
 }
 
 // subject to change depending on what goes in the responses arrays
-buildInfoLink = (links, fragment) => {
+const buildInfoLink = (links, fragment) => {
     links.forEach(link => {
         const listItem = document.createElement('li')
         const a = document.createElement('a')
@@ -197,7 +197,7 @@ buildInfoLink = (links, fragment) => {
     })
 }
 
-noLink = type => {
+const noLink = type => {
     const noLink = document.createElement('p')
     
     noLink.id = 'no-link'
