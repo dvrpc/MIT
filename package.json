@@ -27,6 +27,7 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "webpack-inject-plugin": "^1.5.3",
     "whatwg-fetch": "^3.0.0"
   }
 }
