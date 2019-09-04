@@ -1,8 +1,91 @@
 /* Get a handle on the necessary elements */
-const g = document.querySelector('g')
+let g = document.querySelector('g')
 const cloudContainer = document.querySelector('#cloud-container')
 const problemStatementsWrapper = document.querySelector('#problem-statements-wrapper')
 const defaultStatement = document.querySelector('#default-statement')
+
+
+/////////////////////////// BEGIN POLYFILLS ///////////////////////////
+
+// SVG children polyfill
+const svgChildrenPolyfill = constructor => {
+    if (constructor && constructor.prototype && constructor.prototype.children == null) {
+        Object.defineProperty(constructor.prototype, 'children', {
+            get: function() {
+                var i = 0, node, nodes = this.childNodes, children = [];
+                while (node = nodes[i++]) {
+                    if (node.nodeType === 1) {
+                        children.push(node);
+                    }
+                }
+                return children;
+            }
+        });
+    }
+}
+svgChildrenPolyfill(window.Node || window.Element);
+
+// classList polyfill
+if (!('classList' in SVGElement.prototype)) {
+    Object.defineProperty(SVGElement.prototype, 'classList', {
+      get: function get() {
+        var _this = this
+  
+        return {
+          contains: function contains(className) {
+            return _this.className.baseVal.split(' ').indexOf(className) !== -1
+          },
+          add: function add(className) {
+            // short out if the class already exists
+            if(_this.classList.contains(className)) return
+
+            return _this.setAttribute(
+              'class',
+              _this.getAttribute('class') + ' ' + className
+            )
+          },
+          remove: function remove(className) {
+            if(_this.classList.contains(className)) {
+                var reg = new RegExp('(^| )'+className+'($| )','gi')
+                var updatedClassList = _this.getAttribute('class').replace(reg, ' ')
+                _this.setAttribute('class', updatedClassList)
+            }
+          },
+          toggle: function toggle(className) {
+            if (this.contains(className)) {
+              this.remove(className)
+            } else {
+              this.add(className)
+            }
+          }
+        }
+      }
+    })
+  }
+
+// MDN node.remove() polyfill
+const removePolyfill = arr => {
+arr.forEach(function (item) {
+    if (item.hasOwnProperty('remove')) {
+    return;
+    }
+    Object.defineProperty(item, 'remove', {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: function remove() {
+        if (this.parentNode === null) {
+        return;
+        }
+        this.parentNode.removeChild(this);
+    }
+    });
+});
+}
+removePolyfill([Element.prototype, CharacterData.prototype, DocumentType.prototype])
+
+/////////////////////////// END POLYFILLS ///////////////////////////
+
 
 // set the height of the container to match that of the word cloud (include mobile breakpoint)
 cloudContainer.style.height = window.innerWidth > 800 ? window.innerHeight / 1.2+'px' : window.innerHeight / 0.9+'px'
@@ -33,6 +116,7 @@ const getProblemStatements = async keyword => {
     // remove default statement (first pass only)
     if(document.body.contains(defaultStatement)){
         defaultStatement.remove()
+
     // remove existing accordions for each subsequent pass
     }else{
         const accordionWrappers = document.querySelectorAll('.accordion-controls')
@@ -152,5 +236,25 @@ const addAccordionFunctionality = accordions => {
     }
 }
 
-// generate problem statements from the clicked wordcloud keywords
-g.onclick = e => getProblemStatements(e.target)
+// generate problem statements from the clicked wordcloud keywords (wait until the word cloud draws to assign handler)
+let timeoutIDs = []
+
+const assignCloudClickHandler = drawn => {
+    if(drawn) {
+        if(!g) g = document.querySelector('g')
+        g.onclick = e => getProblemStatements(e.target)
+        
+        // clear all of the timeouts if necessary
+        if(timeoutIDs.length) timeoutIDs.forEach(id => clearTimeout(id))
+
+        // remove drawn from local storage
+        localStorage.removeItem('drawn')
+    } else{
+        drawn = localStorage.getItem('drawn')
+        timeoutIDs.push(window.setTimeout(assignCloudClickHandler, 100, drawn))
+    }
+}
+
+// get the status of the wordcloud drawing from localStorage
+let drawn = localStorage.getItem('drawn')
+assignCloudClickHandler(drawn)

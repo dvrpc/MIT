@@ -375,6 +375,9 @@ footer a{
     #dvrpc-logo{
         width: 45%;
     }
+    .icon-wrapper{
+        width: auto;
+    }
     .icon{
         width: 40px;
         height: 40px;

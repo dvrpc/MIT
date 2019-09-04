@@ -530,6 +530,9 @@ function draw(data, bounds) {
             });
 
     vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
+    
+    // handle the race condition edge case where index tries to grab 'g' before this jawn is finished executing
+    localStorage.setItem('drawn', 'true')
 }
 
 function update() {
