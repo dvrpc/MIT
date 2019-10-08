@@ -157,8 +157,10 @@ const addAccordionFunctionality = accordions => {
 // generate problem statements from the clicked wordcloud keywords (wait until the word cloud draws to assign handler)
 let timeoutIDs = []
 
-const assignCloudClickHandler = drawn => {
-    if(drawn) {
+const assignCloudClickHandler = () => {
+    let drawn = localStorage.getItem('drawn')
+
+    if(drawn === 'drawn') {
         if(!g) g = document.querySelector('g')
         g.onclick = e => getProblemStatements(e.target)
         
@@ -173,6 +175,4 @@ const assignCloudClickHandler = drawn => {
     }
 }
 
-// get the status of the wordcloud drawing from localStorage
-let drawn = localStorage.getItem('drawn')
-assignCloudClickHandler(drawn)
+assignCloudClickHandler()
