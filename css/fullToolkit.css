@@ -19,7 +19,7 @@ h1{
     margin: 0 0 1% 0;
 }
 h2{
-    font-size: 1.4em;
+    font-size: 1.6em;
 }
 a{
     background: transparent;
@@ -66,7 +66,7 @@ nav{
 
 /********* Intro Section **********/
 #intro-section {
-    margin: 3%;
+    margin: 3% auto;
 }
 #intro-text{
     font-size: 1.3em;
@@ -94,8 +94,17 @@ main{
     justify-content: space-around;
 }
 .toolkit-group{
-    width: 44%;
-    margin-bottom: 4%;
+    width: 90%;
+    margin-bottom: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.toolkit-group-b{
+    flex-direction: row-reverse;
+}
+.toolkit-text-wrapper, .toolkit-accordion-wrapper{
+    width: 40%;
 }
 .toolkit-title-wrapper{
     display: flex;
@@ -109,9 +118,35 @@ main{
     border-radius: 50%;
     margin: 0 3%;
 }
+.toolkit-group-description{
+    font-size: 1.1em;
+}
+#share-toolkit{
+    padding: 2% 0;
+    background: #e8e8e8;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#share-toolkit-title{
+    margin: 0;
+    color: #4fa3a8;
+}
+.share-text-wrapper{
+    width: 30%;
+    margin-right: 5%;
+}
+#share-toolkit a{
+    width: 15%;
+}
 #brochure-figure{
     padding-top: 1%;
     margin: 0;
+}
+#brochure-img{
+    width: 100%;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
 }
 
 
@@ -124,13 +159,16 @@ main{
     margin: 0 auto;
 }
 .accordion{
+    display: flex;
+    align-items: center;
     margin-top: 1%;
+    margin-bottom: 2px;
     background: rgba(79, 160, 168, 0.1);
     color: #484848;
     border-radius: 7px;
     font-size: 1em;
     width: 100%;
-    padding: 15px;
+    padding: 7px 15px;
     text-align: left;
     transition: 0.4s;
     cursor: pointer;
@@ -138,9 +176,26 @@ main{
     border: none;
 }
 .accordion:before{
-    content: '\02795';
+    content: '+';
     float: left;
     padding-right: 10px;
+    font-size: 1.8em;
+    font-weight: 900;
+}
+.Environment-accordion{
+    color: #7b9d3e;
+}
+.Equity-accordion{
+    color: #582267
+}
+.Economy-accordion{
+    color: #bd2556;
+}
+.Transportation-accordion{
+    color: #de6e1d;
+}
+.Livable-accordion{
+    color: #006ba6;
 }
 .accordion:hover{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -241,9 +296,6 @@ footer a{
         position: sticky;
         top: 0;
     }
-    h1{
-        /* font-size: em; */
-    }
     #dvrpc-logo{
         width: 45%;
     }
@@ -261,11 +313,20 @@ footer a{
         align-items: center;
     }
     .toolkit-group{
-        width: 90%;
         margin-bottom: 15%;
+        flex-direction: column;
     }
-    #brochure-img{
-        width: 65%;
+    main:last-chid{
+        margin-bottom: 0;
+    }
+    .toolkit-text-wrapper, .toolkit-accordion-wrapper{
+        width: 92%;
+    }
+    #share-toolkit{
+        padding: 4% 0;
+    }
+    #share-toolkit a{
+        width: 25%;
     }
     footer{
         padding: 1% 3%;

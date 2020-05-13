@@ -32,6 +32,7 @@ const populateAccordions = statements => {
 
 // Consume API response to create each accordion 
 const createAccordions = (statement, index) => {
+    const category = statement.category.split(' ')[0]
     
     // create the necessary elements
     const accordionFragment = document.createDocumentFragment()
@@ -50,6 +51,7 @@ const createAccordions = (statement, index) => {
     // classes and ids
     accordionControls.classList.add('accordion-controls')
     accordionButton.classList.add('accordion')
+    accordionButton.classList.add(`${category}-accordion`)
     panel.classList.add('panel')
     contentList.classList.add('accordion-content-list')
 
@@ -146,15 +148,18 @@ const toggleAccordions = accordion => {
 
 // handle cases where users are navigating from toolpage category icons
 const zoomToSection = () => {
-    let hash = window.location.hash
-    // make sure the passed hash follows the right pattern
-    if(hash && hash.split('-')[1] === 'accordions'){
-        hash = hash.substr(1)
-        const el = document.getElementById(hash)
-        el.scrollTo({
-            top: 10,
-            behavior: 'smooth'
-        })
+    window.onload = function() {
+        let hash = window.location.hash
+        // make sure the passed hash follows the right pattern
+        if(hash && hash.split('-')[1] === 'accordions'){
+            hash = hash.substr(1)
+            const el = document.getElementById(hash)
+            const section = el.parentElement
+            section.scrollTo({
+                top: 50,
+                behavior: 'auto'
+            })
+        }
     }
 }
 window.onload = () => zoomToSection()
