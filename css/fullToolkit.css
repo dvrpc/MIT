@@ -66,13 +66,12 @@ nav{
 
 /********* Intro Section **********/
 #intro-section {
-    margin: 3% auto;
+    margin: 4% auto;
 }
 #intro-text{
-    font-size: 1.3em;
+    font-size: 1.2em;
     width: 63%;
     margin: 0 auto;
-    letter-spacing: 1px;
 }
 
 
@@ -97,11 +96,7 @@ main{
     width: 90%;
     margin-bottom: 8%;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-}
-.toolkit-group-b{
-    flex-direction: row-reverse;
 }
 .toolkit-text-wrapper, .toolkit-accordion-wrapper{
     width: 40%;
@@ -134,11 +129,10 @@ main{
     color: #4fa3a8;
 }
 .share-text-wrapper{
-    width: 30%;
-    margin-right: 5%;
+    width: 20%;
 }
 #share-toolkit a{
-    width: 15%;
+    width: 20%;
 }
 #brochure-figure{
     padding-top: 1%;
@@ -184,18 +178,23 @@ main{
 }
 .Environment-accordion{
     color: #7b9d3e;
+    background: #eff5e6;
 }
 .Equity-accordion{
-    color: #582267
+    color: #582267;
+    background: #ecdfef;
 }
 .Economy-accordion{
     color: #bd2556;
+    background: #f8e4ea;
 }
 .Transportation-accordion{
     color: #de6e1d;
+    background: #fbeee5;
 }
 .Livable-accordion{
     color: #006ba6;
+    background: #ddedf6;
 }
 .accordion:hover{
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
@@ -304,7 +303,7 @@ footer a{
     }
     #intro-text{
         font-size: 1.2em;
-        width: 90%;
+        width: 100%;
     }
     main{
         flex-direction: column;
@@ -320,13 +319,14 @@ footer a{
         margin-bottom: 0;
     }
     .toolkit-text-wrapper, .toolkit-accordion-wrapper{
-        width: 92%;
+        width: 100%;
+        margin: 0 auto;
     }
     #share-toolkit{
         padding: 4% 0;
     }
-    #share-toolkit a{
-        width: 25%;
+    .share-text-wrapper, #share-toolkit a{
+        width: 30%;
     }
     footer{
         padding: 1% 3%;
