@@ -34,7 +34,6 @@ const getProblemStatements = async keyword => {
     // remove default statement (first pass only)
     if(document.body.contains(defaultStatement)){
         defaultStatement.remove()
-
     // remove existing accordions for each subsequent pass
     }else{
         const accordionWrappers = document.querySelectorAll('.accordion-controls')
@@ -112,7 +111,7 @@ const makeTools = (tools, fragment) => {
         
         toolLink.classList.add('tools')
         // add the tool ID into the URL so that the toolpage can hydrate the jawn
-        toolLink.href="/Connections2045/MIT/toolpage.html?tool="+tool._id
+        toolLink.href="/Connections2045/MIT/toolpage?tool="+tool._id
         toolLink.textContent = tool.name
         toolLink.target = '_blank'
 

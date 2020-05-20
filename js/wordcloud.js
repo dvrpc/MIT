@@ -546,7 +546,7 @@ function update(onload) {
     // recreate the wordbank on every resize to make sure the font scales properly
     var wordBank = [{ key: 'Aging', value: setValue() },{ key:"People", value:setValue() },{ key: 'Affordability', value: setValue() },{ key: 'Housing', value: setValue() },{ key: 'Education', value: setValue() },{ key: 'Jobs', value: setValue() },{ key: 'Downtown', value: setValue() },{ key: 'Regional', value: setValue() },{ key: 'Agriculture', value: setValue() },{ key: 'Business', value: setValue() },{ key: 'Parking', value: setValue() },{ key: 'Revitalize', value: setValue() },{ key: 'Preserve', value: setValue() },{ key: 'Finance', value: setValue() },{ key: 'Flood', value: setValue() },{ key: 'Green', value: setValue() },{ key: 'Climate', value: setValue() },{ key: 'Energy', value: setValue() },{ key: 'Traffic', value: setValue() },{ key: 'Transit', value: setValue() },{ key: 'Health', value: setValue() },{ key: 'Active', value: setValue() },{ key: 'Amenities', value: setValue() },{ key: 'Future', value: setValue() },{ key: 'Technology', value: setValue() },{ key: 'Safety', value: setValue() }]
     layout.stop().size([w, h]).words(wordBank).start();
-
+    
     // handle the race condition edge case where index tries to grab 'g' before this jawn is finished executing
     if(onload) localStorage.setItem('drawn', 'drawn')
 }
