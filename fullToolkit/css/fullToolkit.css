@@ -128,14 +128,11 @@ main{
     display: flex;
     justify-content: space-around;
 }
-#share-toolkit-title{
+.share-toolkit-subheader{
     margin: 0;
     color: #4fa3a8;
 }
 .share-text-wrapper{
-    width: 40%;
-}
-#share-toolkit a{
     width: 40%;
 }
 #brochure-figure{
@@ -343,10 +340,18 @@ address{
     }
     #share-toolkit{
         padding: 4% 0;
+        flex-direction: column;
         justify-content: space-between;
     }
     .share-text-wrapper, #share-toolkit a{
-        width: 45%;
+        width: 100%;
+        text-align: center;
+    }
+    .share-text-contributors {
+        margin-top: 4%;
+    }
+    .share-text-contributors-list {
+        text-align: initial;
     }
     #brochure-img{
         width: 44%;
